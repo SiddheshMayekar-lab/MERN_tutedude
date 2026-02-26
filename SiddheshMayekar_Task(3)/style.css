@@ -1,0 +1,80 @@
+/* Step 3: Body background */
+body {
+    background-color: orange;
+    font-family: Arial, sans-serif;
+}
+
+/* Step 4 & 5 */
+.head {
+    color: darkblue;
+}
+
+/* Step 6 & 7 */
+#bglime {
+    background-color: lightgreen;
+    color: red;
+}
+
+/* Step 8 */
+p {
+    color: white;
+}
+
+/* Step 9 */
+#para {
+    color: green;
+}
+
+/* Step 10 */
+.highlight {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Step 11 */
+/* Style all anchor tags */
+a {
+    color: purple;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Hover effect */
+a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------- Surprise Section ---------------- */
+
+.surprise-section {
+    margin-top: 30px;
+}
+
+/* Hide checkbox */
+#toggle {
+    display: none;
+}
+
+/* Style label like button */
+.surprise-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: darkblue;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Hidden message initially */
+.thank-message {
+    display: none;
+    margin-top: 15px;
+    font-size: 18px;
+    color: white;
+}
+
+/* Show message when checkbox checked */
+#toggle:checked+.surprise-btn+.thank-message {
+    display: block;
+}

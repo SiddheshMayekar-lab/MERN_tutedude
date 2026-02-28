@@ -1,52 +1,46 @@
-/* Apply box sizing properly */
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Prevent scrolling */
 body {
     height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
-/* Main container styling */
+/* Main container with required spacing */
 .container {
-    width: 50vw;              /* 25% left + 25% right spacing */
-    height: 80vh;             /* 10% top + 10% bottom spacing */
-    margin: 10vh 25vw;        /* Top/Bottom 10%, Left/Right 25% */
-    padding: 2vw;
-    border: 3px solid #333;
-    text-align: center;
-    background-color: #f4f4f4;
+    width: 50vw;
+    /* 25% left + 50% content + 25% right */
+    height: 80vh;
+    /* 10% top + 80% content + 10% bottom */
+
+    margin: 10vh 25vw;
 }
 
-/* Image styling */
-.container img {
-    width: 60%;
-    height: 30vh;
+/* Image */
+.image-wrapper img {
+    width: 100%;
+    height: 60vh;
+    display: block;
+    /* Removes bottom whitespace */
     object-fit: cover;
-    margin: 2vh 0;
-    border-radius: 8px;
 }
 
-/* Paragraph styling */
-.container p {
-    font-size: 1.2vw;
-    margin-bottom: 2vh;
-}
+/* Button */
+.btn {
+    width: 100%;
+    height: 20vh;
 
-/* Button styling */
-button {
-    padding: 1vh 2vw;
-    font-size: 1vw;
     border: none;
-    background-color: #333;
+    font-size: 2.5vh;
     color: white;
     cursor: pointer;
-}
 
-button:hover {
-    background-color: #555;
+    background: linear-gradient(to right,
+            #f4b400, /* Warm yellow tone from your image */
+            #7dbf3b, /* Node.js green */
+            #4caf1f /* MongoDB green */
+        );
 }

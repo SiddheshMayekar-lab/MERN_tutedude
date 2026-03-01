@@ -1,0 +1,838 @@
+/* ============================================================
+   LAUNDRY MART – Full CSS
+   Font: Plus Jakarta Sans (elegant, modern, not generic)
+   Theme: Clean white + ocean blue  
+   ============================================================ */
+
+/* === RESET === */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* === BASE === */
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    background: #f4f8fe;
+    color: #1e293b;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.navbar {
+    height: 72px;
+    background: #ffffff;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 24px rgba(0, 30, 80, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Logo */
+.logo {
+    font-size: 1.45rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #0a3d62;
+    letter-spacing: -0.4px;
+    text-decoration: none;
+}
+
+.logo i {
+    color: #1e90ff;
+    font-size: 1.7rem;
+}
+
+/* Desktop nav links */
+.nav-links {
+    display: flex;
+    gap: 2.2rem;
+}
+
+.nav-links a {
+    color: #2c4e6e;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.97rem;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-links a:hover {
+    color: #1e90ff;
+    border-bottom-color: #1e90ff;
+}
+
+/* Right actions group */
+.right-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+/* User profile pill */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 16px 6px 8px;
+    border: 1.5px solid #d0e4f5;
+    border-radius: 40px;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.user-profile:hover {
+    border-color: #1e90ff;
+    background: #f0f8ff;
+}
+
+.initial {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(145deg, #1e90ff, #0a3d62);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(30, 144, 255, 0.25);
+}
+
+.full-name {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #0f2b4b;
+}
+
+/* === HAMBURGER + MOBILE MENU (pure CSS :focus-within) === */
+.menu-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.hamburger-btn {
+    display: none;
+    /* hidden on desktop */
+    background: none;
+    border: 1.5px solid #d0e4f5;
+    border-radius: 10px;
+    padding: 6px 10px;
+    font-size: 1.3rem;
+    color: #0a3d62;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    line-height: 1;
+}
+
+.hamburger-btn:hover,
+.hamburger-btn:focus {
+    color: #1e90ff;
+    border-color: #1e90ff;
+    outline: none;
+}
+
+.mobile-menu {
+    display: none;
+    /* hidden by default */
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 220px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 20px 50px rgba(0, 30, 80, 0.16);
+    border: 1px solid #e2edf8;
+    padding: 1.4rem 1.2rem;
+    flex-direction: column;
+    gap: 0.3rem;
+    z-index: 999;
+}
+
+.mobile-menu a {
+    display: block;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0a3d62;
+    padding: 0.5rem 0.8rem;
+    border-radius: 10px;
+    transition: background 0.15s, color 0.15s, padding-left 0.15s;
+}
+
+.mobile-menu a:hover {
+    background: #f0f8ff;
+    color: #1e90ff;
+    padding-left: 1.2rem;
+}
+
+/* Show mobile menu when anything inside menu-container is focused */
+.menu-container:focus-within .mobile-menu {
+    display: flex;
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+    min-height: calc(100vh - 72px);
+    padding: 3rem 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    background:
+        radial-gradient(ellipse at 85% 20%, #d6eaff 0%, transparent 55%),
+        radial-gradient(ellipse at 10% 80%, #e8f4ff 0%, transparent 50%),
+        #f4f8fe;
+}
+
+/* ── Hero Left ── */
+.hero-left {
+    flex: 1;
+    max-width: 600px;
+}
+
+/* Trust badge */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #fff;
+    border: 1.5px solid #c8e0f5;
+    color: #1e6bab;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 40px;
+    margin-bottom: 1.4rem;
+    box-shadow: 0 2px 10px rgba(30, 100, 200, 0.08);
+}
+
+.badge i {
+    color: #f5a623;
+}
+
+/* Headline */
+.hero-left h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #081e3a;
+    margin-bottom: 1.2rem;
+    letter-spacing: -1px;
+}
+
+.hero-left h1 span {
+    display: block;
+    color: #1e90ff;
+    font-size: 2.9rem;
+    margin-top: 0.2rem;
+}
+
+/* Sub-paragraph */
+.hero-left p {
+    font-size: 1.07rem;
+    color: #3a5878;
+    font-weight: 400;
+    max-width: 500px;
+    margin-bottom: 2.2rem;
+}
+
+/* ============================================================
+   CTA BUTTONS  ← fixed & polished
+   ============================================================ */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.4rem;
+    flex-wrap: wrap;
+}
+
+/* Shared base */
+.primary-btn,
+.secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 0.9rem 2rem;
+    border-radius: 60px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: 2px solid transparent;
+    /* Spring transition for grow + tilt combo */
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.25s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+    /* resting state — no tilt, no scale */
+    transform: translateY(0) scale(1) rotate(0deg);
+    transform-origin: center center;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Primary – filled blue */
+.primary-btn {
+    background: #0a3d62;
+    color: #ffffff;
+    box-shadow: 0 8px 22px rgba(10, 61, 98, 0.28);
+}
+
+/* Hover: lift + grow + tilt right */
+.primary-btn:hover {
+    background: #0d4e7e;
+    transform: translateY(-4px) scale(1.07) rotate(-2deg);
+    box-shadow: 0 20px 40px rgba(10, 61, 98, 0.38);
+}
+
+.primary-btn:active {
+    transform: translateY(0) scale(0.97) rotate(0deg);
+    box-shadow: 0 4px 12px rgba(10, 61, 98, 0.2);
+}
+
+/* Secondary – outlined */
+.secondary-btn {
+    background: transparent;
+    color: #0a3d62;
+    border-color: #0a3d62;
+    box-shadow: 0 4px 14px rgba(10, 61, 98, 0.08);
+}
+
+/* Hover: lift + grow + tilt left (opposite direction for visual variety) */
+.secondary-btn:hover {
+    background: #0a3d62;
+    color: #ffffff;
+    transform: translateY(-4px) scale(1.07) rotate(2deg);
+    box-shadow: 0 20px 40px rgba(10, 61, 98, 0.32);
+}
+
+.secondary-btn:active {
+    transform: translateY(0) scale(0.97) rotate(0deg);
+    box-shadow: 0 4px 12px rgba(10, 61, 98, 0.15);
+}
+
+/* Icon inside buttons – no extra transform */
+.primary-btn i,
+.secondary-btn i {
+    font-size: 1rem;
+    display: inline-block;
+    transform: none;
+    flex-shrink: 0;
+}
+
+/* ── Hero Features ── */
+.hero-features {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    padding: 0.45rem 1.1rem 0.45rem 0.5rem;
+    border-radius: 40px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #0a3d62;
+    border: 1px solid rgba(190, 220, 250, 0.7);
+    box-shadow: 0 2px 10px rgba(30, 100, 200, 0.06);
+}
+
+.feature-icon {
+    width: 30px;
+    height: 30px;
+    background: #1e90ff;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    box-shadow: 0 3px 8px rgba(30, 144, 255, 0.3);
+}
+
+/* ══════════════════════════════════════════════════════
+   HERO RIGHT — smooth floating 3D card scene
+   ══════════════════════════════════════════════════════ */
+.hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 900px;
+    /* 3D stage for the tilt */
+}
+
+/* ── Scene wrapper ──
+   Holds the card + all decorative blobs.
+   Sized so blobs don't clip. */
+.image-scene {
+    position: relative;
+    width: 460px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ── Decorative blobs (pure CSS, behind the card) ──
+   Three softly coloured circles that drift independently
+   — each on its own duration so they never sync up.     */
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(38px);
+    opacity: 0.55;
+    will-change: transform;
+}
+
+.blob-1 {
+    width: 260px;
+    height: 260px;
+    background: #a8d4ff;
+    top: -30px;
+    left: -20px;
+    animation: blobDrift1 8s ease-in-out infinite;
+}
+
+.blob-2 {
+    width: 200px;
+    height: 200px;
+    background: #c2e4ff;
+    bottom: -20px;
+    right: 10px;
+    animation: blobDrift2 10s ease-in-out infinite;
+}
+
+.blob-3 {
+    width: 140px;
+    height: 140px;
+    background: #1e90ff;
+    opacity: 0.18;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: blobDrift3 6s ease-in-out infinite;
+}
+
+/* ── Image card ──
+   Floats up/down AND gently tilts in 3D — two separate
+   animations so timing can differ for an organic feel.  */
+.image-card {
+    position: relative;
+    width: 420px;
+    z-index: 2;
+    border-radius: 28px;
+    animation: cardFloat 6s ease-in-out infinite,
+        cardTilt 9s ease-in-out infinite;
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+
+.image-card img {
+    width: 100%;
+    border-radius: 24px;
+    border: 5px solid #ffffff;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    box-shadow:
+        0 30px 60px -12px rgba(0, 40, 100, 0.22),
+        0 8px 20px -4px rgba(0, 40, 100, 0.10);
+}
+
+/* ── Ground shadow ──
+   Ellipse beneath the card that breathes with the float. */
+.card-shadow {
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 75%;
+    height: 18px;
+    background: radial-gradient(ellipse, rgba(10, 61, 98, 0.22) 0%, transparent 72%);
+    border-radius: 50%;
+    animation: shadowBreathe 6s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* ── Floating badge ── */
+.floating-badge {
+    position: absolute;
+    bottom: -10px;
+    left: -28px;
+    background: #fff;
+    border: 1.5px solid #daeeff;
+    border-radius: 16px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 28px rgba(0, 50, 100, 0.13);
+    z-index: 5;
+    animation: badgePop 6s ease-in-out infinite;
+    /* slightly offset phase from main float for layered depth */
+    animation-delay: -2s;
+}
+
+.floating-badge i {
+    color: #22c55e;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.floating-badge strong {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0a3d62;
+}
+
+.floating-badge span {
+    display: block;
+    font-size: 0.74rem;
+    color: #7a9ab8;
+}
+
+/* ══════════════════════════════════════════════════════
+   KEYFRAMES — all GPU-friendly (transform + opacity only)
+   ══════════════════════════════════════════════════════ */
+
+/* Card rises and sinks — slow, gentle, eased */
+@keyframes cardFloat {
+    0% {
+        transform: translateY(0px) rotateX(0deg);
+    }
+
+    30% {
+        transform: translateY(-18px) rotateX(1.5deg);
+    }
+
+    60% {
+        transform: translateY(-8px) rotateX(-1deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotateX(0deg);
+    }
+}
+
+/* Card rocks left ↔ right in 3D perspective — slow & dreamy */
+@keyframes cardTilt {
+    0% {
+        transform: rotateY(0deg) rotateZ(0deg);
+    }
+
+    20% {
+        transform: rotateY(-5deg) rotateZ(-0.8deg);
+    }
+
+    50% {
+        transform: rotateY(4deg) rotateZ(0.6deg);
+    }
+
+    80% {
+        transform: rotateY(-3deg) rotateZ(-0.5deg);
+    }
+
+    100% {
+        transform: rotateY(0deg) rotateZ(0deg);
+    }
+}
+
+/* Shadow shrinks as card rises, grows as it sinks */
+@keyframes shadowBreathe {
+    0% {
+        transform: translateX(-50%) scaleX(1) opacity: 0.8;
+    }
+
+    30% {
+        transform: translateX(-50%) scaleX(0.72);
+        opacity: 0.35;
+    }
+
+    60% {
+        transform: translateX(-50%) scaleX(0.88);
+        opacity: 0.55;
+    }
+
+    100% {
+        transform: translateX(-50%) scaleX(1);
+        opacity: 0.8;
+    }
+}
+
+/* Badge drifts on a slightly different rhythm */
+@keyframes badgePop {
+    0% {
+        transform: translateY(0px);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Blob drifts */
+@keyframes blobDrift1 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    40% {
+        transform: translate(18px, -22px) scale(1.06);
+    }
+
+    70% {
+        transform: translate(-10px, 14px) scale(0.96);
+    }
+}
+
+@keyframes blobDrift2 {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    35% {
+        transform: translate(-20px, 16px) scale(1.08);
+    }
+
+    65% {
+        transform: translate(14px, -10px) scale(0.94);
+    }
+}
+
+@keyframes blobDrift3 {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.35);
+        opacity: 0.12;
+    }
+}
+
+
+/* ============================================================
+   RESPONSIVE – TABLET  ≤ 992px
+   ============================================================ */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 6%;
+        gap: 3rem;
+        min-height: auto;
+    }
+
+    .hero-left {
+        max-width: 100%;
+    }
+
+    .hero-left h1 {
+        font-size: 2.6rem;
+    }
+
+    .hero-left h1 span {
+        font-size: 2.3rem;
+    }
+
+    .hero-left p {
+        margin-inline: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-features {
+        justify-content: center;
+    }
+
+    .badge {
+        margin-inline: auto;
+    }
+
+    .image-scene {
+        width: 380px;
+        height: 330px;
+    }
+
+    .image-card {
+        width: 340px;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE – MOBILE  ≤ 600px
+   ============================================================ */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 0 1.2rem;
+        height: 64px;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .logo i {
+        font-size: 1.4rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger-btn {
+        display: inline-flex;
+    }
+
+    .full-name {
+        font-size: 0.78rem;
+    }
+
+    .user-profile {
+        padding: 4px 10px 4px 6px;
+    }
+
+    .initial {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: left;
+        padding: 2rem 1.2rem 3rem;
+        gap: 2rem;
+    }
+
+    .hero-left h1 {
+        font-size: 2rem;
+        letter-spacing: -0.5px;
+    }
+
+    .hero-left h1 span {
+        font-size: 1.85rem;
+    }
+
+    .hero-left p {
+        font-size: 0.94rem;
+    }
+
+    .badge {
+        font-size: 0.78rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .secondary-btn {
+        display: inline-flex;
+    }
+
+    .hero-features {
+        display: none;
+    }
+
+    .image-scene {
+        width: 300px;
+        height: 270px;
+    }
+
+    .image-card {
+        width: 280px;
+    }
+
+    .floating-badge {
+        left: -10px;
+    }
+
+    .blob-1 {
+        width: 180px;
+        height: 180px;
+    }
+
+    .blob-2 {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* ============================================================
+   TINY SCREENS  ≤ 380px
+   ============================================================ */
+@media (max-width: 380px) {
+    .hero-left h1 {
+        font-size: 1.75rem;
+    }
+
+    .hero-left h1 span {
+        font-size: 1.6rem;
+    }
+
+    .image-scene {
+        width: 260px;
+        height: 240px;
+    }
+
+    .image-card {
+        width: 240px;
+    }
+}

@@ -1,0 +1,466 @@
+/* === Reset === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f5f9fe;
+    color: #1e293b;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* === navbar (updated with hamburger) === */
+.navbar {
+    height: 70px;
+    background-color: #ffffff;
+    color: #0f2b4b;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 20px rgba(0, 30, 60, 0.04);
+    position: relative;
+    z-index: 20;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    letter-spacing: -0.3px;
+    color: #0a3d62;
+}
+
+.logo i {
+    color: #1e90ff;
+    font-size: 1.8rem;
+}
+
+/* --- desktop navigation links --- */
+.nav-links {
+    display: flex;
+    gap: 2.2rem;
+}
+
+.nav-links a {
+    color: #1e405e;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 4px;
+}
+
+.nav-links a:hover {
+    color: #1e90ff;
+    border-bottom-color: #1e90ff;
+}
+
+/* --- user profile (desktop & mobile) --- */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 16px 6px 10px;
+    border: 1.5px solid #d0e2f2;
+    border-radius: 40px;
+    cursor: default;
+    background-color: white;
+    transition: 0.2s;
+}
+
+.user-profile:hover {
+    border-color: #1e90ff;
+    background-color: #f0f8ff;
+}
+
+.initial {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(145deg, #1e90ff, #0a3d62);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(30, 144, 255, 0.2);
+}
+
+.full-name {
+    font-size: 0.95rem;
+    font-weight: 550;
+    color: #0f2b4b;
+}
+
+/* ===== HAMBURGER ICON (hidden on desktop) ===== */
+.hamburger-btn {
+    display: none;
+    /* hidden by default (desktop) */
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+    color: #0a3d62;
+    transition: color 0.2s;
+    padding: 0.2rem 0.5rem;
+    line-height: 1;
+}
+
+.hamburger-btn:hover {
+    color: #1e90ff;
+}
+
+/* focus outline (accessibility) */
+.hamburger-btn:focus-visible {
+    outline: 2px solid #1e90ff;
+    outline-offset: 4px;
+}
+
+/* ===== OFF‑CANVAS MENU (right side, absolute) ===== */
+.mobile-menu {
+    display: none;
+    /* hidden by default */
+    position: absolute;
+    top: 70px;
+    /* right below navbar */
+    right: 0;
+    width: 260px;
+    background: white;
+    box-shadow: -8px 12px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 0 24px;
+    padding: 2rem 1.8rem;
+    z-index: 100;
+    flex-direction: column;
+    gap: 1.6rem;
+    border-top: 2px solid #1e90ff;
+}
+
+/* menu links styling */
+.mobile-menu a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #0a3d62;
+    padding: 0.4rem 0;
+    border-bottom: 2px solid transparent;
+    transition: 0.15s;
+    display: inline-block;
+}
+
+.mobile-menu a:hover {
+    border-bottom-color: #1e90ff;
+    color: #1e90ff;
+    transform: translateX(6px);
+}
+
+/* ===== THE TRICK: show mobile menu when hamburger button is focused ===== */
+/* button and menu are siblings inside .navbar-wrapper – we'll use structure */
+
+/* We wrap navbar content and button in a flex container to keep layout */
+.navbar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* On mobile, hamburger visible and menu toggled by :focus */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 0 1.2rem;
+    }
+
+    /* hide original desktop nav links */
+    .nav-links {
+        display: none;
+    }
+
+    /* show hamburger button */
+    .hamburger-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* use sibling selector: when button is focused, show the menu (which is adjacent sibling) 
+         BUT .mobile-menu is not a direct sibling of .hamburger-btn in current DOM.
+         We need to restructure slightly so that button and menu are adjacent in the same container.
+      */
+
+    /* To make it work without JS, we reorder DOM inside navbar: 
+         - logo left, then spacer, then user-profile, then hamburger button.
+         - then immediately after navbar (outside flow) we place .mobile-menu.
+         But then they are not siblings. Better: put .mobile-menu as sibling of .hamburger-btn inside navbar.
+         But absolute positioning still works.
+      */
+
+    /* Let's adjust HTML structure: navbar contains left group (logo) and right group (user + hamburger).
+         Then mobile-menu placed as immediate sibling of hamburger? Actually they must be siblings.
+         We'll put hamburger and mobile-menu inside a wrapper div with position relative.
+      */
+}
+
+/* Fix: restructure in HTML to have button + menu as siblings inside a container.
+       We'll keep everything clean – I'll rewrite navbar as per new structure.
+    */
+
+/* updated navbar structure (see HTML) – using flex, hamburger and menu wrapper */
+.navbar {
+    height: 70px;
+    padding: 0 8%;
+}
+
+/* on mobile adjustment */
+.right-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    position: relative;
+    /* context for absolute menu */
+}
+
+.hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #0a3d62;
+}
+
+/* mobile menu — hidden by default */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    /* below the button */
+    right: 0;
+    width: 240px;
+    background: white;
+    border-radius: 20px 0 20px 20px;
+    box-shadow: 0 20px 35px rgba(0, 30, 60, 0.2);
+    padding: 1.8rem 1.5rem;
+    z-index: 999;
+    flex-direction: column;
+    gap: 1.5rem;
+    border: 1px solid #e2ecfb;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #0a3d62;
+    padding: 0.3rem 0;
+    border-bottom: 2px solid transparent;
+    transition: 0.15s;
+}
+
+.mobile-menu a:hover {
+    border-bottom-color: #1e90ff;
+    color: #1e90ff;
+    padding-left: 6px;
+}
+
+/* magic: when hamburger button is focused, show adjacent mobile-menu */
+.hamburger-btn:focus+.mobile-menu {
+    display: flex;
+}
+
+/* also keep menu visible if something inside is focused (optional) but focus stays on button? 
+       We'll also make it disappear when clicking outside (blur). That's fine.
+       Also we can make it persist if we focus inside menu? tricky but this is the pure css way.
+    */
+
+/* for better ux, keep menu visible while any child is focused (if you tab into links) */
+.mobile-menu:focus-within {
+    display: flex;
+}
+
+/* but we also need to hide again when blur. it will hide when button loses focus.
+       however, if you click on a link inside, the button blurs but menu may disappear before click.
+       we add a small delay or use :focus-within on a wrapper. best is to wrap both button and menu in a container with :focus-within
+    */
+
+/* let's create a container .menu-container around button and menu, and use :focus-within */
+.menu-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.menu-container:focus-within .mobile-menu {
+    display: flex;
+}
+
+/* and we keep .hamburger-btn:focus as fallback, but this is robust */
+
+/* ===== mobile media query (activate) ===== */
+@media (max-width: 600px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hamburger-btn {
+        display: inline-flex;
+    }
+
+    /* ensure menu appears above */
+    .mobile-menu {
+        display: none;
+        /* hidden by default, shown via focus-within */
+    }
+
+    .menu-container:focus-within .mobile-menu {
+        display: flex;
+    }
+
+    /* minor tweaks */
+    .user-profile .full-name {
+        font-size: 0.8rem;
+    }
+
+    .user-profile {
+        padding: 4px 10px 4px 6px;
+    }
+}
+
+/* hero section remains the same (shortened for brevity, but keep style) */
+.hero {
+    min-height: calc(100vh - 70px);
+    padding: 2rem 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    background: radial-gradient(circle at 90% 30%, #e5f0ff, #ffffff 70%);
+}
+
+.hero-left {
+    flex: 1;
+    max-width: 620px;
+}
+
+.hero-left h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+    color: #0a2c44;
+}
+
+.hero-left h1 span {
+    color: #1e90ff;
+    display: block;
+    font-size: 3rem;
+    margin-top: 0.3rem;
+}
+
+.hero-left p {
+    font-size: 1.1rem;
+    color: #2d4a6e;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 2.2rem;
+}
+
+.primary-btn {
+    background: #0a3d62;
+    color: white;
+    padding: 0.9rem 2.2rem;
+    border-radius: 60px;
+    border: none;
+    font-weight: 550;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 2px solid #0a3d62;
+    color: #0a3d62;
+    padding: 0.9rem 2.2rem;
+    border-radius: 60px;
+    font-weight: 550;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.hero-features {
+    display: flex;
+    gap: 2rem;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.3rem 1rem;
+    border-radius: 40px;
+}
+
+.hero-right img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 28px;
+    box-shadow: 0 30px 40px -15px rgba(0, 50, 90, 0.3);
+}
+
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-features {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        text-align: left;
+        padding: 2rem 1.2rem;
+    }
+
+    .hero-left h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-left h1 span {
+        display: block;
+        font-size: 2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .secondary-btn {
+        display: none;
+    }
+
+    .hero-features {
+        display: none;
+    }
+}

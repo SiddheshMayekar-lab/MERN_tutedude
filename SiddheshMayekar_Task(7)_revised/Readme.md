@@ -1,4 +1,5 @@
  <!-- Laundry Services – Responsive Layout (Task 7) -->
+
 ## About This Task
 
 In this assignment, I had to fix the responsive issues of the Laundry Services webpage that we created earlier. The desktop version was working fine, but when I checked it on tablet and mobile screen sizes, the layout was breaking.
@@ -10,7 +11,6 @@ After getting feedback, I understood that my earlier CSS looked too polished and
 I want to honestly mention that I did take some help from AI while building the previous version. I now understand that depending too much on it reduces the learning value of the task. This assignment is meant to test my understanding, not perfection.
 
 So I rewrote the CSS in a simpler and clearer way so that it truly reflects what I understand at this stage.
-
 
 ## What I Learned
 
@@ -56,6 +56,7 @@ I tested the page using Chrome DevTools at:
 - 600px (Mobile)
 
 I confirmed that:
+
 - Navbar adapts correctly.
 - Hero section stacks properly.
 - Text and image sizes reduce appropriately.
@@ -69,4 +70,9 @@ This assignment helped me better understand responsive design using Flexbox and 
 Most importantly, I learned that writing simple and clear code that reflects my own understanding is more valuable than trying to make it look overly professional.
 
 This task strengthened my foundation in responsive design.
-EOF
+
+## Author
+
+Siddhesh Mayekar  
+BSc IT – Second Year  
+Software Developer Intern

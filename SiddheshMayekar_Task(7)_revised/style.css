@@ -1,0 +1,294 @@
+:root {
+    --breakpoint-tablet: 992px;
+    --breakpoint-mobile: 600px;
+}
+
+/* Reset box-sizing so padding doesn't add extra width. */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, serif;
+    background-color: #f8fafc;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* Makes images shrink on small screens instead of overflowing */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/*
+   NAVBAR
+   Flexbox to spread logo, links, and profile
+   across the bar horizontally.
+*/
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 50px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Flex to align icon and text side by side */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #2563eb;
+    text-decoration: none;
+}
+
+/* Nav links in a row with spacing between each */
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1e293b;
+    font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+/* Flex to put the circle initial and name side by side */
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Circle with the user's initial */
+.initial {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #2563eb;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.full-name {
+    font-size: 0.95rem;
+    color: #1e293b;
+}
+
+/*
+   HERO SECTION
+   Two-column layout: text on the left, image on the right.
+*/
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 80px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-left {
+    flex: 1;
+    min-width: 0;
+    /* prevents text from pushing flex container wider than available space */
+}
+
+.hero-left h1 {
+    font-size: 2.8rem;
+    color: #1e293b;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+/* The span sits on its own line in blue */
+.hero-left h1 span {
+    display: block;
+    color: #2563eb;
+}
+
+.hero-left p {
+    font-size: 1.2rem;
+    margin-bottom: 36px;
+    color: #475569;
+}
+
+/* ---- BUTTONS ----
+   Side by side with a gap, wrap if they don't fit */
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+}
+
+/* Shared base styles for both buttons */
+.primary-btn,
+.secondary-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    font-family: inherit;
+}
+
+.primary-btn {
+    background-color: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+}
+
+.primary-btn:hover {
+    background-color: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+/* Outlined style – no fill, just a border */
+.secondary-btn {
+    background-color: transparent;
+    color: #2563eb;
+    border-color: #2563eb;
+}
+
+.secondary-btn:hover {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+/* FEATURE PILLS
+   Three highlights in a row */
+.hero-features {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* wraps naturally on smaller screens */
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #475569;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 8px 14px;
+    border-radius: 999px;
+    /* pill shape */
+}
+
+.feature i {
+    color: #2563eb;
+}
+
+/* Right side – the image.
+   min-width: 0 prevents the flex child from overflowing
+   when the image is wider than the available space. */
+.hero-right {
+    flex: 1;
+    min-width: 0;
+}
+
+.hero-right img {
+    width: 100%;
+    height: 480px;
+    border-radius: 12px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/*
+   TABLET – 992px
+   Hero switches to one column, image gets shorter.
+*/
+@media (max-width: 992px) {
+    .navbar {
+        padding: 16px 24px;
+    }
+
+    /* Stack hero content vertically instead of side by side */
+    .hero {
+        flex-direction: column;
+        padding: 40px 24px;
+    }
+
+    .hero-right img {
+        height: 300px;
+    }
+
+    .hero-left h1 {
+        font-size: 2rem;
+    }
+}
+
+/*
+   MOBILE – 600px
+   Nav links hidden (no space for them).
+   Buttons stack vertically for thumb-friendly tapping.
+   Feature pills go into a 2-column grid.
+*/
+@media (max-width: 600px) {
+    .navbar {
+        padding: 12px 16px;
+    }
+
+    /* Hide nav links on mobile – a hamburger menu would replace this
+     in a real project, but that's beyond this task's scope */
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding: 32px 16px;
+        gap: 32px;
+    }
+
+    .hero-left h1 {
+        font-size: 1.6rem;
+    }
+
+    /* Stack buttons vertically so they're full width and easy to tap */
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Pills go into a 2-column grid instead of disappearing */
+    .hero-features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .feature {
+        justify-content: center;
+    }
+
+    .hero-right img {
+        height: 220px;
+    }
+}

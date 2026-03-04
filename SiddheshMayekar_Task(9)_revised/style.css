@@ -1,11 +1,5 @@
-/* CSS Variables
-   Defining colors and breakpoints here as variables.
-   Colors I can use with var() anywhere in the file.
-   Breakpoints I still have to write as plain px in media queries
-   because CSS doesn't allow var() inside @media conditions — I
-   learned this the hard way. But at least the values match what's
-   written up here so it's easy to track.
-*/
+/* colors and breakpoints i use throughout the file
+   note: cant use these variables inside @media, have to write px directly */
 :root {
   /* Breakpoints */
   --bp-tablet: 992px;
@@ -156,12 +150,8 @@ Hidden on desktop, shown on mobile via media query below.
   outline: none;
 }
 
-/* Mobile menu
-  The trick here: .hamburger-btn and .mobile-menu are direct
-  siblings in the HTML. That means I can use the adjacent
-  sibling selector (.hamburger-btn:focus + .mobile-menu)
-  to show the menu when the button is focused — no JavaScript.
-*/
+/* show menu when hamburger is clicked, no js needed
+   only works because the two elements are right next to each other in html */
 .mobile-menu {
   display: none;
   position: absolute;
@@ -216,11 +206,7 @@ Hidden on desktop, shown on mobile via media query below.
   align-items: center;
   justify-content: space-between;
   gap: 4rem;
-  background: radial-gradient(
-    circle at 85% 30%,
-    #deeeff,
-    var(--color-white) 65%
-  );
+  background: linear-gradient(135deg, #deeeff, var(--color-white));
 }
 
 .hero-left {
@@ -258,14 +244,7 @@ Hidden on desktop, shown on mobile via media query below.
   flex-wrap: wrap;
 }
 
-/*
-  Shared base styles for both buttons.
-  - transform-origin: center means scale and rotate both pivot
-    from the middle of the button (this is the default anyway,
-    but I'm writing it explicitly so it's clear).
-  - transition: ease-out feels snappy on the way in, smooth on
-    the way back. I tried ease-in-out but it felt too slow.
-*/
+/* base styles for both buttons */
 .primary-btn,
 .secondary-btn {
   display: inline-flex;
@@ -278,7 +257,6 @@ Hidden on desktop, shown on mobile via media query below.
   font-weight: 700;
   cursor: pointer;
   border: 2px solid transparent;
-  transform-origin: center;
   transition:
     transform 0.25s ease-out,
     box-shadow 0.25s ease-out,
@@ -287,32 +265,27 @@ Hidden on desktop, shown on mobile via media query below.
     border-color 0.2s;
 }
 
-/* Primary — solid navy fill */
+/* solid button */
 .primary-btn {
   background: var(--color-navy);
   color: var(--color-white);
   box-shadow: 0 6px 18px rgba(10, 61, 98, 0.25);
 }
 
-/*
-  On hover:
-  - scale(1.08) grows it slightly so it feels "pressable"
-  - rotate(-2deg) tilts left — I tried 5deg first but it
-    was too much. 2 degrees is subtle enough to look intentional.
-*/
+/* scale up and tilt left on hover, tried 5deg first but 2 feels better */
 .primary-btn:hover {
   background: #0d4e7e;
   transform: scale(1.08) rotate(-2deg);
   box-shadow: 0 14px 30px rgba(10, 61, 98, 0.35);
 }
 
-/* clicking: shrinks back and removes tilt to feel like a press */
+/* shrinks on click */
 .primary-btn:active {
   transform: scale(0.96) rotate(0deg);
   box-shadow: 0 3px 10px rgba(10, 61, 98, 0.2);
 }
 
-/* Secondary — outlined style */
+/* outlined button */
 .secondary-btn {
   background: transparent;
   color: var(--color-navy);
@@ -320,10 +293,7 @@ Hidden on desktop, shown on mobile via media query below.
   box-shadow: 0 4px 12px rgba(10, 61, 98, 0.08);
 }
 
-/*
-  Tilts right (+2deg) — opposite direction to primary for variety.
-  Also fills in with solid color on hover so it feels like it activates.
-*/
+/* tilts opposite direction to primary */
 .secondary-btn:hover {
   background: var(--color-navy);
   color: var(--color-white);
@@ -382,16 +352,9 @@ Hidden on desktop, shown on mobile via media query below.
   transform: scale(1.02);
 }
 
-/* ============================================================
-   RESPONSIVE
-   Note: CSS variables can't be used inside @media conditions,
-   so I'm writing the px values directly. The comments show
-   which variable they match.
-   --bp-tablet = 992px
-   --bp-mobile = 600px
-   ============================================================ */
+/* responsive — writing px directly since variables dont work in @media */
 
-/* Tablet ≤ 992px (--bp-tablet) */
+/* Tablet */
 @media (max-width: 992px) {
   .hero {
     flex-direction: column;
@@ -423,7 +386,7 @@ Hidden on desktop, shown on mobile via media query below.
   }
 }
 
-/* Mobile ≤ 600px (--bp-mobile) */
+/* Mobile */
 @media (max-width: 600px) {
   .navbar {
     padding: 0 1.2rem;

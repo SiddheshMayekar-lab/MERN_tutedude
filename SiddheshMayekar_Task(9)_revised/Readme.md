@@ -1,60 +1,46 @@
-# Task 9 – CSS Transforms on Buttons
+# Task 9 – Button Hover Effects
 
-## What this task is about
+## What I built
 
-Practicing CSS `transform` on hover — specifically `scale()` and `rotate()` combined on buttons.
+A laundry service landing page with a navbar, hero section, and two buttons that scale and tilt on hover.
 
-## The button hover effect
+## The hover effect
 
-Both buttons scale up and tilt when you hover over them:
+Both buttons grow and tilt when you hover over them. Book Service tilts left and Contact Us tilts right so they feel different from each other. I first tried 5deg but it looked too much so I went with 2deg.
 
-- **Book Service** tilts left: `transform: scale(1.08) rotate(-2deg)`
-- **Contact Us** tilts right: `transform: scale(1.08) rotate(2deg)`
+One thing that tripped me up — I was writing scale and rotate as two separate transform lines and only one was working. Turns out the second just overwrites the first, both have to go on the same line like `transform: scale(1.08) rotate(-2deg)`.
 
-They tilt in opposite directions so they feel different from each other. I originally tried `rotate(5deg)` but it looked too exaggerated — 2 degrees is small enough to look intentional without being distracting.
-
-One thing I got confused about early on: if you write `scale` and `rotate` as two separate `transform` properties, the second one just overwrites the first. You have to put both values in the same `transform` line:
-
-```css
-/* wrong — rotate cancels out scale */
-transform: scale(1.08);
-transform: rotate(-2deg);
-
-/* correct — both apply together */
-transform: scale(1.08) rotate(-2deg);
-```
-
-The `:active` state removes the tilt and shrinks the button slightly (`scale(0.96)`) so clicking feels like a real press.
-
-## CSS variables
-
-I used `:root` variables for colors and breakpoints:
-
-```css
-:root {
-  --bp-tablet: 992px;
-  --bp-mobile: 600px;
-  --color-navy: #0a3d62;
-  --color-blue: #1e90ff;
-  /* ... */
-}
-```
-
-One limitation: CSS variables can't be used inside `@media` conditions. So in the media queries I had to write the pixel values directly (`992px`, `600px`), but I added comments showing which variable they correspond to.
+I also added an :active state so the button shrinks slightly when you click it, makes it feel more like a real button press.
 
 ## Mobile menu
 
-The hamburger menu works with no JavaScript — I used the CSS adjacent sibling selector:
+The hamburger menu opens without any JavaScript. It works using the CSS focus + sibling selector — the button and menu have to be right next to each other in the HTML for this to work.
 
-```css
-.hamburger-btn:focus + .mobile-menu {
-  display: flex;
-}
+## Responsive
+
+On tablet the hero stacks vertically. On mobile the nav links hide and the hamburger shows up instead. I also hid the second button and feature pills on small screens to keep it clean.
+
+## CSS variables
+
+I stored all colors in :root so I dont have to repeat hex codes. One thing I found out is you cant use CSS variables inside @media queries so I had to write the px values directly there.
+
+## Folder Structure
+
+```
+project-folder/
+│
+├── index.html       # Page markup and semantic structure
+├── style.css        # All styling, animations, and responsive rules
+└── README.md        # Project documentation
 ```
 
-This only works because `.hamburger-btn` and `.mobile-menu` are direct siblings in the HTML. If there was any element between them it would break.
+## How to Run the Project
 
-## Files
+1. **Download or Clone** the project folder containing `index.html`, `style.css`, and `README.md`.
+2. **Open `index.html`** directly in any modern web browser (Chrome, Firefox, Edge, Safari).
 
-- `index.html` — page structure
-- `style.css` — all styles, variables, and media queries
+## Author
+
+**Siddhesh Mayekar**  
+BSc IT – Second Year  
+Software Developer Intern

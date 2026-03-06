@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thala 7 Sneaker Store</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">
+        <h2>Thala 7</h2>
+      </div>
+
+      <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="product.html">Shop</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+
+      <div class="icons">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <i class="fa-solid fa-cart-shopping"></i>
+        <i class="fa-solid fa-user"></i>
+      </div>
+    </header>
+
+    <section class="checkout-container">
+      <div class="payment-left">
+        <h2>Checkout</h2>
+
+        <label>Email Address</label>
+        <input type="email" placeholder="Enter your email" />
+
+        <h3>Payment Method</h3>
+
+        <div class="payment-methods">
+          <label>
+            <input type="radio" name="pay" />
+            Card
+          </label>
+
+          <label>
+            <input type="radio" name="pay" />
+            Crypto
+          </label>
+
+          <label>
+            <input type="radio" name="pay" />
+            Bank
+          </label>
+        </div>
+
+        <h3>Card Details</h3>
+
+        <input type="text" placeholder="Card Number" />
+
+        <div class="card-row">
+          <input type="text" placeholder="Expiry Date" />
+
+          <input type="text" placeholder="CVV" />
+        </div>
+
+        <input type="text" placeholder="Country" />
+
+        <input type="text" placeholder="ZIP Code" />
+
+        <div class="payment-icons">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-brands fa-cc-amex"></i>
+          <i class="fa-brands fa-cc-paypal"></i>
+        </div>
+      </div>
+
+      <div class="payment-right">
+        <h3>Order Summary</h3>
+
+        <input type="text" placeholder="Enter Coupon Code" />
+
+        <button class="btn">Apply Coupon</button>
+
+        <div class="summary">
+          <p>Sub Total : $120</p>
+
+          <p>Taxes : $10</p>
+
+          <p>Discount : $5</p>
+
+          <hr />
+
+          <h2>Total : $125</h2>
+        </div>
+
+        <button class="btn pay-btn">Pay Now</button>
+      </div>
+    </section>
+  </body>
+</html>

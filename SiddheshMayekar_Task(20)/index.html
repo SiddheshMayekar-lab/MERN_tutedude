@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Laundry Service</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="logo">LaundryMart</div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="user">Hi, User</div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-left">
+    <h1>Premium Laundry Service</h1>
+    <p>Fast, reliable and affordable laundry solutions.</p>
+    <button onclick="scrollToBooking()">Book a Service Today</button>
+  </div>
+  <div class="hero-right">
+    <img src="https://via.placeholder.com/400" alt="Laundry">
+  </div>
+</section>
+
+<!-- ================= SERVICE OVERVIEW ================= -->
+<section class="overview">
+  <div>15+ Services</div>
+  <div>240+ Customers</div>
+  <div>2+ Years Experience</div>
+</section>
+
+<!-- ================= BOOKING SECTION ================= -->
+<section id="services" class="booking">
+
+  <!-- LEFT -->
+  <div class="left">
+    <h2>Services</h2>
+    <div class="service" data-name="Washing" data-price="50">
+      Washing - ₹50
+      <button onclick="addItem(this)">Add</button>
+    </div>
+    <div class="service" data-name="Ironing" data-price="30">
+      Ironing - ₹30
+      <button onclick="addItem(this)">Add</button>
+    </div>
+    <div class="service" data-name="Dry Clean" data-price="100">
+      Dry Clean - ₹100
+      <button onclick="addItem(this)">Add</button>
+    </div>
+
+    <p class="info">Add items to the cart</p>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="right">
+    <h2>Your Cart</h2>
+    <div id="cart"></div>
+    <h3>Total: ₹<span id="total">0</span></h3>
+
+    <h3>Book Now</h3>
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="phone" placeholder="Phone">
+
+    <button onclick="bookNow()">Book Now</button>
+    <p id="message"></p>
+  </div>
+
+</section>
+
+<!-- ================= QUALITY ================= -->
+<section class="quality" id="about">
+  <h2>Why Choose Us?</h2>
+  <p>Premium service, fast delivery, affordable pricing.</p>
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+<section class="newsletter">
+  <h2>Subscribe</h2>
+  <input type="text" placeholder="Full Name">
+  <input type="email" placeholder="Email">
+  <button>Subscribe</button>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer" id="contact">
+  <div>Logo</div>
+  <div>About Us</div>
+  <div>FAQs</div>
+  <div>Contact</div>
+  <div>Social Icons</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

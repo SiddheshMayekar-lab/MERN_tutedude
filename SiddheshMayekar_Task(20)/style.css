@@ -1,0 +1,265 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+  background: #0f172a;
+  color: #fff;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #ddd;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #38bdf8;
+}
+
+.user {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* ================= HERO ================= */
+.hero {
+  display: flex;
+  padding: 70px 60px;
+  align-items: center;
+  background: linear-gradient(to right, #f8fafc, #e2e8f0);
+}
+
+.hero-left {
+  width: 60%;
+}
+
+.hero-left h1 {
+  font-size: 42px;
+  margin-bottom: 15px;
+  color: #0f172a;
+}
+
+.hero-left p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #475569;
+}
+
+.hero-left button {
+  padding: 12px 18px;
+  background: #0ea5e9;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-left button:hover {
+  background: #0284c7;
+}
+
+.hero-right {
+  width: 40%;
+}
+
+.hero img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* ================= OVERVIEW ================= */
+.overview {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+  background: #0f172a;
+  color: white;
+  font-weight: 500;
+}
+
+.overview div {
+  text-align: center;
+  font-size: 18px;
+}
+
+/* ================= BOOKING ================= */
+.booking {
+  display: flex;
+  padding: 60px;
+  gap: 40px;
+  background: #f8fafc;
+}
+
+.left, .right {
+  width: 50%;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.left h2, .right h2 {
+  margin-bottom: 15px;
+}
+
+/* SERVICE ITEM */
+.service {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px 0;
+  background: #f1f5f9;
+  border-radius: 6px;
+}
+
+.service button {
+  background: #22c55e;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.service button:hover {
+  background: #16a34a;
+}
+
+/* CART */
+#cart div {
+  margin: 8px 0;
+  padding: 8px;
+  background: #f1f5f9;
+  border-radius: 5px;
+}
+
+#cart button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 3px 8px;
+  margin-left: 10px;
+  border-radius: 4px;
+}
+
+/* INPUTS */
+.right input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* BOOK BUTTON */
+.right button {
+  width: 100%;
+  padding: 12px;
+  background: #0ea5e9;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.right button:hover {
+  background: #0284c7;
+}
+
+#message {
+  margin-top: 10px;
+  color: green;
+  font-size: 14px;
+}
+
+/* ================= QUALITY ================= */
+.quality {
+  padding: 60px;
+  text-align: center;
+  background: #e2e8f0;
+}
+
+.quality h2 {
+  margin-bottom: 10px;
+}
+
+/* ================= NEWSLETTER ================= */
+.newsletter {
+  padding: 60px;
+  text-align: center;
+  background: #0f172a;
+  color: white;
+}
+
+.newsletter input {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 200px;
+}
+
+.newsletter button {
+  padding: 10px 16px;
+  background: #38bdf8;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  display: flex;
+  justify-content: space-around;
+  padding: 25px;
+  background: #020617;
+  color: #aaa;
+  font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left, .hero-right {
+    width: 100%;
+  }
+
+  .booking {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    width: 100%;
+  }
+
+  .overview {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

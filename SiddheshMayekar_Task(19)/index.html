@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Service Booking App</title>
+
+    <!-- Google Font (small upgrade) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+      <div><b>MyService</b></div>
+
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <div>
+        Siddhesh
+        <button class="logout" onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <!-- MAIN -->
+    <div class="container">
+      <!-- LEFT -->
+      <div class="left">
+        <h2>Added Items</h2>
+
+        <div id="cart-list">No items added</div>
+
+        <div class="total">Total: ₹<span id="total">0</span></div>
+
+        <h3 style="margin-top: 20px">Book Now</h3>
+
+        <form id="bookingForm">
+          <input type="text" id="name" placeholder="Full Name" />
+          <input type="email" id="email" placeholder="Email" />
+          <input type="password" id="password" placeholder="Password" />
+          <button type="submit">Book Now</button>
+        </form>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="right">
+        <h2>Browse Our Services</h2>
+        <div id="services"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

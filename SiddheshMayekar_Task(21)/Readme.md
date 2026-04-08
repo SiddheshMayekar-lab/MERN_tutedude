@@ -45,3 +45,5 @@ No build process or dependencies required!
 
 ## Author
 Siddhesh Mayekar
+
+Please Note NO Ai is Used.

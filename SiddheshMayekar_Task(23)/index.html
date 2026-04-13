@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AppName</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+
+  <body class="font-sans text-gray-800">
+    <!-- NAVBAR -->
+    <header class="sticky top-0 bg-white shadow-sm z-50">
+      <div
+        class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <h1 class="text-xl font-semibold">AppName</h1>
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex gap-6 items-center text-sm">
+          <a href="#" class="hover:text-black">Features</a>
+          <a href="#" class="hover:text-black">Pricing</a>
+          <a href="#" class="hover:text-black">About</a>
+          <a href="#" class="hover:text-black">Contact</a>
+          <a
+            href="#"
+            class="bg-black text-white px-4 py-2 rounded-md text-sm hover:bg-gray-800"
+          >
+            Get Started
+          </a>
+        </nav>
+
+        <!-- Mobile Icon -->
+        <button class="md:hidden text-xl">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
+      <div
+        class="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row items-center gap-10"
+      >
+        <!-- Text -->
+        <div class="lg:w-1/2">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Build Amazing Products Faster
+          </h2>
+
+          <p class="text-sm md:text-base mb-6 text-gray-200">
+            A simple platform to help you design, build and scale your products
+            efficiently. No unnecessary complexity, just clean tools that work.
+          </p>
+
+          <div class="flex gap-4 flex-wrap">
+            <button
+              class="bg-white text-black px-5 py-2 rounded-md text-sm font-medium hover:bg-gray-200"
+            >
+              Start Free Trial
+            </button>
+
+            <button
+              class="border border-white px-5 py-2 rounded-md text-sm hover:bg-white hover:text-black transition"
+            >
+              Watch Demo
+            </button>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="lg:w-1/2 w-full">
+          <img
+            src="https://images.unsplash.com/photo-1559028012-481c04fa702d"
+            alt="product"
+            class="w-full h-64 md:h-80 lg:h-96 object-cover rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <h3 class="text-2xl font-semibold text-center mb-10">
+          Powerful Features
+        </h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div class="p-6 border rounded-lg hover:shadow-md transition">
+            <i class="fas fa-bolt text-xl mb-4 text-indigo-500"></i>
+            <h4 class="font-semibold mb-2">Lightning Fast</h4>
+            <p class="text-sm text-gray-600">
+              Optimized performance to keep your workflow smooth and efficient.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="p-6 border rounded-lg hover:shadow-md transition">
+            <i class="fas fa-shield-alt text-xl mb-4 text-indigo-500"></i>
+            <h4 class="font-semibold mb-2">Secure</h4>
+            <p class="text-sm text-gray-600">
+              Built with best practices to ensure your data stays protected.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="p-6 border rounded-lg hover:shadow-md transition">
+            <i class="fas fa-chart-line text-xl mb-4 text-indigo-500"></i>
+            <h4 class="font-semibold mb-2">Analytics</h4>
+            <p class="text-sm text-gray-600">
+              Get insights and track performance with simple dashboards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white py-6">
+      <div
+        class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-4"
+      >
+        <h5 class="font-medium">AppName</h5>
+
+        <p class="text-sm text-gray-400">2026 AppName. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

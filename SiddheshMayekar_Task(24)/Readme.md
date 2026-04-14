@@ -1,15 +1,14 @@
 ## Overview
 
-This project demonstrates different animation techniques using Tailwind CSS. It includes interactive UI elements such as buttons, cards, loaders, and notification badges to improve user experience.
+This project shows different animation techniques using Tailwind CSS. It includes basic UI elements like buttons, cards, loaders, and badges to understand how animations improve interaction.
 
 ## Features
 
-* Built-in Tailwind animations (spin, ping, pulse, bounce)
-* Interactive button hover effects
-* Card animations with transitions
-* Notification badges with indicators
-* Loading states (skeleton, spinner, bouncing dots)
-* Staggered animations using custom keyframes
+Tailwind animations (spin, ping, pulse, bounce)
+Button hover effects using scale, rotate, and shadow
+Card transitions and hover interactions
+Notification badges
+Loading states (spinner, skeleton, dots)
 
 ## How to Run
 
@@ -22,6 +21,6 @@ This project demonstrates different animation techniques using Tailwind CSS. It 
 * Tailwind CSS
 
 ## Author
+
 Siddhesh Mayekar
 
-Please Note NO Ai is Used.

@@ -3,146 +3,97 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Animations & UI Feedback</title>
+    <title>Animations Practice</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <style>
-      /* Custom stagger animation */
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .fade-up {
-        animation: fadeUp 0.6s ease forwards;
-      }
-
-      .delay-0 {
-        animation-delay: 0ms;
-      }
-      .delay-150 {
-        animation-delay: 150ms;
-      }
-      .delay-300 {
-        animation-delay: 300ms;
-      }
-      .delay-450 {
-        animation-delay: 450ms;
-      }
-    </style>
   </head>
   <body class="bg-gray-100 text-gray-800">
-    <!-- HEADER -->
     <header class="text-center py-10">
       <h1 class="text-3xl font-bold">Animations & UI Feedback</h1>
       <p class="text-gray-600 mt-2">
-        Interact with elements to see animations in action
+        Trying different Tailwind animations step by step
       </p>
     </header>
-
-    <!-- SECTION 1 -->
     <section class="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="bg-white p-6 rounded-xl shadow text-center">
         <div
           class="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto"
         ></div>
-        <h3 class="mt-4 font-semibold">animate-spin</h3>
-        <p class="text-sm text-gray-500">Loading spinner</p>
+        <h3 class="mt-4 font-semibold">Spin</h3>
+        <p class="text-sm text-gray-500">Loading indicator</p>
       </div>
-
       <div class="bg-white p-6 rounded-xl shadow text-center relative">
         <span
           class="absolute top-2 right-2 w-3 h-3 bg-red-500 rounded-full animate-ping"
         ></span>
-        <h3 class="mt-6 font-semibold">animate-ping</h3>
-        <p class="text-sm text-gray-500">Notification pulse</p>
+        <h3 class="mt-6 font-semibold">Ping</h3>
+        <p class="text-sm text-gray-500">Notification effect</p>
       </div>
-
       <div class="bg-white p-6 rounded-xl shadow text-center">
         <div class="h-4 bg-gray-300 rounded w-3/4 mx-auto animate-pulse"></div>
-        <h3 class="mt-4 font-semibold">animate-pulse</h3>
-        <p class="text-sm text-gray-500">Skeleton loader</p>
+        <h3 class="mt-4 font-semibold">Pulse</h3>
+        <p class="text-sm text-gray-500">Loading placeholder</p>
       </div>
-
       <div class="bg-white p-6 rounded-xl shadow text-center">
         <div class="text-3xl animate-bounce">⬇️</div>
-        <h3 class="mt-4 font-semibold">animate-bounce</h3>
-        <p class="text-sm text-gray-500">Bounce indicator</p>
+        <h3 class="mt-4 font-semibold">Bounce</h3>
+        <p class="text-sm text-gray-500">Scroll hint</p>
       </div>
     </section>
-
-    <!-- SECTION 2 BUTTONS -->
     <section class="p-8 flex flex-wrap gap-4 justify-center">
+      <!-- simple scale -->
       <button
-        class="bg-blue-500 text-white px-5 py-2 rounded transition transform hover:scale-110"
+        class="bg-blue-500 text-white px-5 py-2 rounded transform transition hover:scale-110"
       >
         Scale
       </button>
-
       <button
-        class="bg-green-500 text-white px-5 py-2 rounded transition transform hover:scale-110 hover:shadow-lg"
+        class="bg-green-500 text-white px-5 py-2 rounded transform transition hover:scale-110 hover:shadow-lg"
       >
-        Shadow + Scale
+        Scale + Shadow
       </button>
-
       <button
         class="bg-purple-500 text-white px-5 py-2 rounded transition-colors hover:bg-purple-700"
       >
-        Color Change
+        Color
       </button>
-
       <button
-        class="bg-orange-500 text-white px-5 py-2 rounded transition transform hover:rotate-6"
+        class="bg-orange-500 text-white px-5 py-2 rounded transform transition hover:rotate-6"
       >
         Rotate
       </button>
-
       <button
-        class="bg-pink-500 text-white px-5 py-2 rounded transition transform hover:-translate-y-2"
+        class="bg-pink-500 text-white px-5 py-2 rounded transform transition hover:-translate-y-2"
       >
         Lift
       </button>
-
       <button
-        class="bg-indigo-500 text-white px-5 py-2 rounded transition transform hover:scale-110 hover:rotate-3 hover:shadow-xl active:scale-95"
+        class="bg-indigo-500 text-white px-5 py-2 rounded transform transition hover:scale-110 hover:rotate-3 hover:shadow-xl active:scale-95"
       >
         Combined
       </button>
     </section>
-
-    <!-- SECTION 3 CARDS -->
     <section class="p-8 grid md:grid-cols-3 gap-6">
       <div
         class="bg-white p-6 rounded-xl shadow transition duration-300 hover:-translate-y-2 hover:shadow-xl"
       >
         <h3 class="font-semibold">Hover Lift</h3>
-        <p class="text-sm text-gray-500">Card lifts on hover</p>
+        <p class="text-sm text-gray-500">Moves up slightly</p>
       </div>
-
       <div class="group bg-white p-6 rounded-xl shadow transition duration-300">
         <h3
-          class="font-semibold group-hover:scale-110 group-hover:rotate-2 transition"
+          class="font-semibold transition group-hover:scale-110 group-hover:rotate-2"
         >
           Group Hover
         </h3>
-        <p class="text-sm text-gray-500">Scale + rotate</p>
+        <p class="text-sm text-gray-500">Parent controls child</p>
       </div>
-
       <div
-        class="bg-white p-6 rounded-xl shadow border-2 border-transparent hover:border-blue-500 transition duration-300"
+        class="bg-white p-6 rounded-xl shadow border-2 border-transparent transition duration-300 hover:border-blue-500"
       >
-        <h3 class="font-semibold">Border Reveal</h3>
-        <p class="text-sm text-gray-500">Border animates</p>
+        <h3 class="font-semibold">Border</h3>
+        <p class="text-sm text-gray-500">Border appears on hover</p>
       </div>
     </section>
-
-    <!-- SECTION 4 BADGES -->
     <section class="p-8 flex gap-10 justify-center">
       <div class="relative">
         🔔
@@ -163,14 +114,11 @@
         <span class="absolute -top-1 -right-1 text-xs animate-bounce">!</span>
       </div>
     </section>
-
-    <!-- SECTION 5 LOADING -->
     <section class="p-8 flex flex-col items-center gap-6">
       <div class="bg-white p-6 rounded-xl shadow w-64 animate-pulse">
         <div class="h-4 bg-gray-300 rounded mb-2"></div>
         <div class="h-4 bg-gray-300 rounded w-5/6"></div>
       </div>
-
       <button
         class="bg-blue-500 text-white px-5 py-2 rounded flex items-center gap-2"
       >
@@ -179,24 +127,36 @@
         ></span>
         Loading
       </button>
-
       <div class="flex gap-2">
         <div class="w-3 h-3 bg-gray-600 rounded-full animate-bounce"></div>
-        <div
-          class="w-3 h-3 bg-gray-600 rounded-full animate-bounce delay-150"
-        ></div>
-        <div
-          class="w-3 h-3 bg-gray-600 rounded-full animate-bounce delay-300"
-        ></div>
+        <div class="w-3 h-3 bg-gray-600 rounded-full animate-bounce"></div>
+        <div class="w-3 h-3 bg-gray-600 rounded-full animate-bounce"></div>
       </div>
     </section>
-
-    <!-- SECTION 6 STAGGER -->
     <section class="p-8 grid md:grid-cols-4 gap-6">
-      <div class="bg-white p-6 rounded-xl shadow fade-up delay-0">Card 1</div>
-      <div class="bg-white p-6 rounded-xl shadow fade-up delay-150">Card 2</div>
-      <div class="bg-white p-6 rounded-xl shadow fade-up delay-300">Card 3</div>
-      <div class="bg-white p-6 rounded-xl shadow fade-up delay-450">Card 4</div>
+      <div
+        class="bg-white p-6 rounded-xl shadow opacity-0 translate-y-5 transition duration-700 hover:opacity-100 hover:translate-y-0"
+      >
+        Card 1
+      </div>
+
+      <div
+        class="bg-white p-6 rounded-xl shadow opacity-0 translate-y-5 transition duration-700 hover:opacity-100 hover:translate-y-0"
+      >
+        Card 2
+      </div>
+
+      <div
+        class="bg-white p-6 rounded-xl shadow opacity-0 translate-y-5 transition duration-700 hover:opacity-100 hover:translate-y-0"
+      >
+        Card 3
+      </div>
+
+      <div
+        class="bg-white p-6 rounded-xl shadow opacity-0 translate-y-5 transition duration-700 hover:opacity-100 hover:translate-y-0"
+      >
+        Card 4
+      </div>
     </section>
   </body>
 </html>

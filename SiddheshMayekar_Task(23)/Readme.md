@@ -1,24 +1,27 @@
-# Hero Landing Page
+# Landing Page (Task 23)
 
-This is a simple hero landing page built using Tailwind CSS.
+This is a simple responsive landing page built using HTML and Tailwind CSS.
 
-The page includes:
+## Features Implemented
+- Responsive navbar
+- Mobile hamburger menu (JavaScript toggle)
+- Hero section with text and image
+- Features section using grid
+- Footer
 
-* Sticky navigation bar
-* Hero section with headline and description
-* Call-to-action buttons
-* Dashboard preview with floating cards
-* Fixed chat button
+## Responsive Design
+- Used flex-col for mobile and flex-row for larger screens
+- Grid layout changes from 1 column to 3 columns on medium screens
+- Navigation switches to hamburger menu on small screens
 
-Tailwind CSS CDN is used for styling and layout, mainly focusing on positioning utilities like relative, absolute, sticky, and fixed.
+## What I Learned
+- How Tailwind breakpoints (md, lg) work
+- How to structure responsive layouts
+- Basic JavaScript for menu toggle
 
-## How to run
-
-Just open the `index.html` file in your browser.
-
-No setup required.
+## How to Run
+1. Open index.html in browser
+2. Resize screen to test responsiveness
 
 ## Author
 Siddhesh Mayekar
-
-Please Note NO Ai is Used.

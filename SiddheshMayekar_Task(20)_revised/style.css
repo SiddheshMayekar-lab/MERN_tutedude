@@ -7,14 +7,14 @@ body {
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 15px 40px;
+  padding: 15px 25px;
   background: #001e6c;
   color: white;
 }
 
 .navbar ul {
   display: flex;
-  gap: 20px;
+  gap: 18px;
   list-style: none;
 }
 
@@ -26,7 +26,7 @@ body {
 /* HERO */
 .hero {
   display: flex;
-  padding: 50px;
+  padding: 40px;
 }
 
 .hero-left {
@@ -34,31 +34,44 @@ body {
 }
 
 .hero-right img {
-  width: 300px;
+  width: 230px;
+}
+
+/* BUTTON */
+button {
+  padding: 8px 15px;
+  border: none;
+  background: #fa633b;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e5532d;
 }
 
 /* OVERVIEW */
 .overview {
   text-align: center;
-  padding: 40px;
-  background: #f5f5f5;
+  padding: 30px;
+  background: #eee;
 }
 
 .stats {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 25px;
 }
 
 /* SERVICES */
 .services {
-  padding: 40px;
+  padding: 25px;
 }
 
 .service-card {
-  border: 1px solid #ddd;
-  padding: 15px;
-  margin: 10px 0;
+  border: 1px solid #ccc;
+  padding: 12px;
+  margin: 8px 0;
   display: flex;
   justify-content: space-between;
 }
@@ -66,26 +79,45 @@ body {
 /* BOOKING */
 .booking {
   display: flex;
-  padding: 40px;
-  gap: 40px;
+  padding: 30px;
+  gap: 25px;
 }
 
-.left, .right {
+.left {
+  flex: 1;
+}
+
+.right {
   flex: 1;
 }
 
 .right input {
   display: block;
-  margin: 10px 0;
-  padding: 8px;
   width: 100%;
+  margin: 8px 0;
+  padding: 8px;
+}
+
+/* QUALITY */
+.quality {
+  padding: 30px;
+  background: #f4f4f4;
+}
+
+.quality-box {
+  margin: 12px 0;
 }
 
 /* NEWSLETTER */
 .newsletter {
   text-align: center;
-  padding: 40px;
-  background: #eee;
+  padding: 30px;
+  background: #ddd;
+}
+
+.newsletter input {
+  margin: 5px;
+  padding: 8px;
 }
 
 /* FOOTER */
@@ -93,5 +125,36 @@ footer {
   background: #001e6c;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 18px;
+}
+
+footer a {
+  color: white;
+  margin: 0 8px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .booking {
+    flex-direction: column;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hero-right img {
+    width: 180px;
+  }
 }

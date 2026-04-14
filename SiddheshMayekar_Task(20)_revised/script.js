@@ -1,87 +1,124 @@
-// INIT EMAILJS
+// emailjs init
 (function () {
   emailjs.init("x_5JCvFq7sgRoy_f5");
 })();
 
-// SERVICES DATA
-const services = [
+// services list
+var services = [
   { name: "Wash & Fold", price: 100 },
   { name: "Dry Cleaning", price: 200 },
   { name: "Ironing", price: 50 }
 ];
 
-let cart = [];
+var cart = [];
 
-// LOAD SERVICES
-const container = document.getElementById("serviceContainer");
+// show services
+var container = document.getElementById("serviceContainer");
 
-services.forEach((s, index) => {
-  const div = document.createElement("div");
+for (var i = 0; i < services.length; i++) {
+
+  var div = document.createElement("div");
   div.className = "service-card";
 
-  div.innerHTML = `
-    <span>${s.name} - ₹${s.price}</span>
-    <button onclick="addItem(${index})">Add</button>
-  `;
+  div.innerHTML =
+    services[i].name + " - ₹" + services[i].price +
+    " <button onclick='addItem(" + i + ")'>Add</button>";
 
   container.appendChild(div);
-});
+}
 
-// ADD ITEM
+// add item
 function addItem(index) {
   cart.push(services[index]);
   updateCart();
 }
 
-// UPDATE CART
-function updateCart() {
-  const cartDiv = document.getElementById("cartItems");
-  const totalSpan = document.getElementById("total");
-
-  cartDiv.innerHTML = "";
-
-  let total = 0;
-
-  cart.forEach((item, i) => {
-    total += item.price;
-
-    const div = document.createElement("div");
-    div.innerHTML = `
-      ${item.name} - ₹${item.price}
-      <button onclick="removeItem(${i})">Remove</button>
-    `;
-    cartDiv.appendChild(div);
-  });
-
-  totalSpan.innerText = total;
-}
-
-// REMOVE ITEM
+// remove item
 function removeItem(i) {
   cart.splice(i, 1);
   updateCart();
 }
 
-// SCROLL
+// update cart
+function updateCart() {
+
+  var cartDiv = document.getElementById("cartItems");
+  var totalSpan = document.getElementById("total");
+
+  cartDiv.innerHTML = "";
+
+  var total = 0;
+
+  for (var i = 0; i < cart.length; i++) {
+
+    total = total + cart[i].price;
+
+    var div = document.createElement("div");
+
+    div.innerHTML =
+      cart[i].name + " - ₹" + cart[i].price +
+      " <button onclick='removeItem(" + i + ")'>X</button>";
+
+    cartDiv.appendChild(div);
+  }
+
+  totalSpan.innerText = total;
+}
+
+// scroll
 function scrollToBooking() {
   document.getElementById("booking").scrollIntoView();
 }
 
-// BOOK NOW (EMAILJS)
-function bookNow() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
+// simple email check
+function checkEmail(email) {
+  if (email.indexOf("@") == -1) return false;
+  if (email.indexOf(".") == -1) return false;
+  return true;
+}
 
-  if (!name || !email || !phone) {
+// simple phone check
+function checkPhone(phone) {
+  if (phone.length != 10) return false;
+  if (isNaN(phone)) return false;
+  return true;
+}
+
+// booking
+function bookNow() {
+
+  var name = document.getElementById("name").value;
+  var email = document.getElementById("email").value;
+  var phone = document.getElementById("phone").value;
+
+  if (name == "" || email == "" || phone == "") {
     alert("Fill all fields");
     return;
   }
 
-  let order = cart.map(item => item.name).join(", ");
-  let total = document.getElementById("total").innerText;
+  if (!checkEmail(email)) {
+    alert("Wrong email");
+    return;
+  }
 
-  const params = {
+  if (!checkPhone(phone)) {
+    alert("Wrong phone");
+    return;
+  }
+
+  if (cart.length == 0) {
+    alert("Cart empty");
+    return;
+  }
+
+  var order = "";
+  for (var i = 0; i < cart.length; i++) {
+    order = order + cart[i].name + ", ";
+  }
+
+  var total = document.getElementById("total").innerText;
+
+  var data = {
     name: name,
     email: email,
     phone: phone,
@@ -89,15 +126,35 @@ function bookNow() {
     total: total
   };
 
-  emailjs.send("service_e4h7u2f", "template_6wvu3wj", params)
-    .then(() => {
-      document.getElementById("msg").innerText =
-        "Thank you for booking! We will get back to you soon.";
+  emailjs.send("service_e4h7u2f", "template_6wvu3wj", data)
+    .then(function () {
+      document.getElementById("msg").innerText = "Booking Done";
 
       cart = [];
       updateCart();
     })
-    .catch(() => {
-      alert("Email failed");
+    .catch(function () {
+      alert("Error sending email");
     });
+}
+
+// newsletter
+function subscribe() {
+
+  var name = document.getElementById("newsName").value;
+  var email = document.getElementById("newsEmail").value;
+
+  if (name == "" || email == "") {
+    alert("Fill all fields");
+    return;
+  }
+
+  if (!checkEmail(email)) {
+    alert("Wrong email");
+    return;
+  }
+
+  localStorage.setItem("user", name + " - " + email);
+
+  document.getElementById("newsMsg").innerText = "Subscribed";
 }

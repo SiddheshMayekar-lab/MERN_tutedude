@@ -1,93 +1,129 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Laundry Service</title>
-  <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Laundry Service</title>
+    <link rel="stylesheet" href="style.css" />
 
-  <!-- EmailJS -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-</head>
-<body>
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">LaundryMart</div>
 
-<!-- NAVBAR -->
-<header>
-  <nav class="navbar">
-    <div class="logo">LaundryMart</div>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#booking">Book</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="user">Hi, Siddhesh</div>
-  </nav>
-</header>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#booking">Book</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <h1>Fast & Reliable Laundry Service</h1>
-    <p>We take care of your clothes so you don’t have to.</p>
-    <button onclick="scrollToBooking()">Book a Service</button>
-  </div>
-  <div class="hero-right">
-    <img src="assets/laundry.png" alt="">
-  </div>
-</section>
+        <div>Hi, Siddhesh</div>
+      </nav>
+    </header>
 
-<!-- SERVICE OVERVIEW -->
-<section class="overview">
-  <h2>Our Achievements</h2>
-  <div class="stats">
-    <div>15+ Services</div>
-    <div>240+ Customers</div>
-    <div>2+ Years Experience</div>
-  </div>
-</section>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Fast & Reliable Laundry Service</h1>
+        <p>We take care of your clothes so you don’t have to.</p>
+        <button onclick="scrollToBooking()">Book a Service</button>
+      </div>
 
-<!-- SERVICES -->
-<section id="services" class="services">
-  <h2>Services</h2>
-  <div id="serviceList"></div>
-</section>
+      <div class="hero-right">
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/2975/2975175.png"
+          alt="Laundry"
+        />
+      </div>
+    </section>
 
-<!-- BOOKING -->
-<section id="booking" class="booking">
-  <div class="left" id="serviceContainer"></div>
+    <!-- OVERVIEW -->
+    <section class="overview">
+      <h2>Our Achievements</h2>
+      <div class="stats">
+        <div>15+ Services</div>
+        <div>240+ Customers</div>
+        <div>2+ Years Experience</div>
+      </div>
+    </section>
 
-  <div class="right">
-    <h3>Cart</h3>
-    <div id="cartItems"></div>
-    <p>Total: ₹<span id="total">0</span></p>
+    <!-- SERVICES -->
+    <section id="services" class="services">
+      <h2>Services</h2>
+    </section>
 
-    <h3>Book Now</h3>
-    <input type="text" id="name" placeholder="Full Name">
-    <input type="email" id="email" placeholder="Email">
-    <input type="text" id="phone" placeholder="Phone">
+    <!-- BOOKING -->
+    <section id="booking" class="booking">
+      <div class="left" id="serviceContainer"></div>
 
-    <button onclick="bookNow()">Book Now</button>
-    <p id="msg"></p>
-  </div>
-</section>
+      <div class="right">
+        <h3>Cart</h3>
+        <div id="cartItems"></div>
+        <p>Total: ₹<span id="total">0</span></p>
 
-<!-- NEWSLETTER -->
-<section class="newsletter">
-  <h2>Subscribe</h2>
-  <input type="text" placeholder="Name">
-  <input type="email" placeholder="Email">
-  <button>Subscribe</button>
-</section>
+        <h3>Book Now</h3>
 
-<!-- FOOTER -->
-<footer>
-  <div>© 2026 LaundryMart</div>
-  <div>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </div>
-</footer>
+        <input type="text" id="name" placeholder="Full Name" />
+        <input type="text" id="email" placeholder="Email" />
+        <input type="text" id="phone" placeholder="Phone" />
 
-<script src="script.js"></script>
-</body>
+        <button onclick="bookNow()">Book Now</button>
+
+        <p id="msg"></p>
+      </div>
+    </section>
+
+    <!-- QUALITY -->
+    <section class="quality">
+      <h2>Why Choose Us?</h2>
+
+      <div class="quality-box">
+        <h4>Affordable Pricing</h4>
+        <p>Good service at low price.</p>
+      </div>
+
+      <div class="quality-box">
+        <h4>Fast Delivery</h4>
+        <p>We deliver quickly.</p>
+      </div>
+
+      <div class="quality-box">
+        <h4>Clean & Safe</h4>
+        <p>Your clothes are handled properly.</p>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <h2>Subscribe</h2>
+
+      <input type="text" id="newsName" placeholder="Name" />
+      <input type="text" id="newsEmail" placeholder="Email" />
+
+      <button onclick="subscribe()">Subscribe</button>
+
+      <p id="newsMsg"></p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div>© 2026 LaundryMart</div>
+
+      <div>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <div>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>

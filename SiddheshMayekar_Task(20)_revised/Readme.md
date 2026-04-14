@@ -1,33 +1,30 @@
-# LaundryMart - Laundry Service Web App
-A responsive, single-page laundry service website built with pure HTML, CSS, and JavaScript.
+# Laundry Service Website
+
+This is a simple laundry service website made using HTML, CSS, and JavaScript.
+
+## Features
+
+- Add services to cart
+- Remove services from cart
+- Total price calculation
+- Booking using EmailJS
+- Basic form validation (email and phone)
+- Responsive design (works on mobile)
 
 ## How to Run
 
 1. Download or clone the project
-2. Open `index.html` in any modern web browser
-3. No server or build process needed!
+2. Open index.html in your browser
+3. Add items to cart
+4. Fill the form and click "Book Now"
 
-# Simply open the file
-open index.html
+## Technologies Used
 
-## Functionality
-
-### Services & Cart
-- Click "Add" to add services to cart
-- Click "Remove" to remove items
-- Total updates automatically
-
-### Booking Form
-- Enter name, email, and phone
-- Email validation (must be valid format)
-- Phone validation (10 digits, starts with 6-9)
-- Booking saves to localStorage
-
-### Newsletter
-- Enter name and email
-- Checks for duplicates
-- Saves to localStorage
-
+- HTML
+- CSS
+- JavaScript
+- EmailJS
 
 ## Author
+
 Siddhesh Mayekar

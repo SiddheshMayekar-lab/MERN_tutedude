@@ -1,0 +1,80 @@
+:root {
+  --background: #f6f7f1;
+  --surface: #ffffff;
+  --text: #334155;
+  --heading: #0f172a;
+  --accent: #0f766e;
+  --code-bg: #ecfdf5;
+  --border: rgba(15, 23, 42, 0.08);
+  --font-body: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  --font-heading: Georgia, 'Times New Roman', serif;
+  --font-code: 'Courier New', Courier, monospace;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(16, 185, 129, 0.16), transparent 30%),
+    linear-gradient(180deg, #f8fafc 0%, var(--background) 100%);
+  font-family: var(--font-body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  color: var(--heading);
+}
+
+h1,
+h2 {
+  font-family: var(--font-heading);
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  line-height: 0.96;
+  margin-top: 0.75rem;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+}
+
+code {
+  font-family: var(--font-code);
+  background: var(--code-bg);
+  border-radius: 10px;
+  padding: 0.15rem 0.45rem;
+}
+
+#root {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 3rem 0;
+}
+
+@media (max-width: 700px) {
+  #root {
+    width: min(100% - 1rem, 1100px);
+    padding: 1.5rem 0;
+  }
+}

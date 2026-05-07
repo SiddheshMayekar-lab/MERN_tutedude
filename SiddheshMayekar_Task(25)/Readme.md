@@ -1,37 +1,33 @@
-# FlowApp Landing Page
-## About the Project
-This is a basic landing page made using HTML and Tailwind CSS.
-I created this project to practice responsive design and understand how Tailwind classes work.
-The design is simple and not too complex because the main focus was on layout and responsiveness.
+# FlowApp Task 25
 
-## Features
+## Project Goal
+This submission focuses on building a modern landing page using only HTML and Tailwind CSS CDN while clearly practicing positioning utilities such as `fixed`, `relative`, `absolute`, and `sticky`.
 
-* Responsive layout (works on mobile and desktop)
-* Navbar with links
-* Hero section with heading and buttons
-* Features section using grid
-* Testimonials section
-* Footer section
+## What Was Implemented
+- Fixed glassmorphism navbar
+- Hero section with light orange to white gradient background
+- Layered dashboard preview using relative and absolute positioning
+- Floating information cards around the hero preview
+- Responsive bento grid features section
+- Glassmorphism testimonial cards
+- Animated call-to-action section
+- Dark footer with social icons and link groups
 
-## Technologies Used
-* HTML
-* Tailwind CSS (CDN)
+## Key Tailwind Concepts Used
+- Tailwind CDN with extended configuration
+- Custom keyframes and animation utilities
+- Gradient backgrounds and gradient text
+- Backdrop blur and transparent borders for glass effects
+- Hover transforms, glow shadows, and transition utilities
+- Sticky section heading and fixed navigation
 
-## Responsiveness
-I used Tailwind breakpoints like `sm` and `md` to make the layout responsive.
-For example:
-* Buttons are in column on small screens and row on bigger screens
-* Grid changes from 1 column to multiple columns based on screen size
-
+## Exact Assignment Alignment
+The hero area follows the mentor feedback more closely by using:
+- `+ Project` style branding
+- `Write, plan, share. With AI at your side.` headline
+- `Get AI free` call-to-action
+- Positioned dashboard and floating information cards
 
 ## How to Run
-1. Download the project folder
-2. Open `index.html` in browser
-3. No setup needed
-
-## What I Learned
-* How to use Tailwind CSS classes
-* How to make layouts responsive
-* Basic use of Flexbox and Grid
-
-
+1. Open `index.html` in any browser.
+2. No build step or installation is required.

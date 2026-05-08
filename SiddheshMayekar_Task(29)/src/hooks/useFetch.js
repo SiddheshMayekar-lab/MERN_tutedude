@@ -1,50 +1,43 @@
 import { useEffect, useState } from 'react'
 
 const useFetch = (url) => {
+  // state for storing fetched data
   const [data, setData] = useState(null)
+
+  // state for loading message
   const [loading, setLoading] = useState(true)
+
+  // state for error handling
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    const controller = new AbortController()
-
+    // function for fetching api data
     const fetchData = async () => {
-      if (!url) {
-        setData(null)
-        setError('Please provide a valid URL.')
-        setLoading(false)
-        return
-      }
-
-      setLoading(true)
-      setError(null)
-
       try {
-        const response = await fetch(url, { signal: controller.signal })
+        setLoading(true)
 
-        if (!response.ok) {
-          throw new Error(`Request failed with status ${response.status}`)
-        }
+        // fetching data from given url
+        const response = await fetch(url)
 
+        // converting response into json
         const result = await response.json()
+
+        // storing data in state
         setData(result)
       } catch (err) {
-        if (err.name !== 'AbortError') {
-          setData(null)
-          setError(err.message || 'Something went wrong while fetching data.')
-        }
-      } finally {
-        if (!controller.signal.aborted) {
-          setLoading(false)
-        }
+        // if error comes while fetching
+        setError('Failed to fetch data')
       }
+
+      // loading completed
+      setLoading(false)
     }
 
+    // calling function
     fetchData()
-
-    return () => controller.abort()
   }, [url])
 
+  // returning values from custom hook
   return { data, loading, error }
 }
 

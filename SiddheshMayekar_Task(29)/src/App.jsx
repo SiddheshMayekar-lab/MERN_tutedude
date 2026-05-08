@@ -1,81 +1,74 @@
-import './App.css'
-import useFetch from './hooks/useFetch'
+import "./App.css";
+import useFetch from "./hooks/useFetch";
 
-const API_URL = 'https://jsonplaceholder.typicode.com/users'
+// api url
+const API_URL = "https://jsonplaceholder.typicode.com/users";
 
 function App() {
-  const { data, loading, error } = useFetch(API_URL)
+  // using custom hook here
+  const { data, loading, error } = useFetch(API_URL);
 
   return (
-    <main className="app-shell">
-      <section className="intro-card">
-        <p className="eyebrow">Task 29</p>
-        <h1>Custom useFetch Hook</h1>
-        <p className="intro-copy">
-          A reusable hook that fetches data from an API and returns
-          <code> data </code>,<code> loading </code>, and
-          <code> error </code> states.
+    <div className="container">
+      <h1>Custom useFetch Hook</h1>
+
+      <p className="description">
+        This project shows how to create and use a custom hook in React for
+        fetching API data.
+      </p>
+
+      <div className="info-box">
+        <p>
+          <strong>API Used:</strong>
         </p>
-        <div className="api-box">
-          <span>Dummy API</span>
-          <code>{API_URL}</code>
+        <p>{API_URL}</p>
+      </div>
+
+      {/* loading message */}
+      {loading && <p className="message">Loading data...</p>}
+
+      {/* error message */}
+      {error && <p className="error">{error}</p>}
+
+      {/* displaying fetched users */}
+      {!loading && !error && (
+        <div className="user-list">
+          {data.map((user) => (
+            <div className="card" key={user.id}>
+              <h2>{user.name}</h2>
+
+              <p>
+                <strong>Email:</strong> {user.email}
+              </p>
+
+              <p>
+                <strong>Phone:</strong> {user.phone}
+              </p>
+
+              <p>
+                <strong>Company:</strong> {user.company.name}
+              </p>
+
+              <p>
+                <strong>Website:</strong> {user.website}
+              </p>
+            </div>
+          ))}
         </div>
-      </section>
+      )}
 
-      <section className="panel">
-        <div className="panel-header">
-          <div>
-            <p className="panel-label">Live Demo</p>
-            <h2>Fetched Users</h2>
-          </div>
-          <span
-            className={`status-badge ${loading ? 'loading' : error ? 'error' : 'success'}`}
-          >
-            {loading ? 'Loading' : error ? 'Error' : 'Success'}
-          </span>
-        </div>
+      <div className="hook-info">
+        <h2>What I Learned</h2>
 
-        {loading && (
-          <p className="message">Fetching data from the API. Please wait...</p>
-        )}
-
-        {error && <p className="message error-message">{error}</p>}
-
-        {!loading && !error && Array.isArray(data) && (
-          <div className="user-grid">
-            {data.map((user) => (
-              <article className="user-card" key={user.id}>
-                <p className="user-company">{user.company?.name}</p>
-                <h3>{user.name}</h3>
-                <p>{user.email}</p>
-                <p>{user.phone}</p>
-                <a href={`https://${user.website}`} target="_blank" rel="noreferrer">
-                  {user.website}
-                </a>
-              </article>
-            ))}
-          </div>
-        )}
-      </section>
-
-      <section className="panel hook-summary">
-        <p className="panel-label">Hook Output</p>
-        <h2>What useFetch Returns</h2>
         <ul>
-          <li>
-            <code>data</code> stores the fetched API response.
-          </li>
-          <li>
-            <code>loading</code> stays <code>true</code> while the request is in
-            progress.
-          </li>
-          <li>
-            <code>error</code> contains the error message if the request fails.
-          </li>
+          <li>How to create a custom hook</li>
+          <li>How useEffect works</li>
+          <li>How to fetch API data</li>
+          <li>How loading and error states are handled</li>
         </ul>
-      </section>
-    </main>
-  )
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;

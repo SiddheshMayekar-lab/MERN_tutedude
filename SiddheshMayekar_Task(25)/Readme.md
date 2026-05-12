@@ -1,33 +1,92 @@
-# FlowApp Task 25
+# FlowApp - SaaS Landing Page
 
-## Project Goal
-This submission focuses on building a modern landing page using only HTML and Tailwind CSS CDN while clearly practicing positioning utilities such as `fixed`, `relative`, `absolute`, and `sticky`.
+## Overview
 
-## What Was Implemented
+FlowApp is a modern SaaS landing page built using:
+
+- HTML5
+- Tailwind CSS CDN
+- Custom Tailwind Config Animations
+
+The project demonstrates:
+
+- Glassmorphism UI
+- Gradient effects
+- Floating animations
+- Morphing blobs
+- Bento Grid layouts
+- 3D hover effects
+- Responsive design
+- Advanced transitions
+
+---
+
+## Features
+
+### Navigation Bar
 - Fixed glassmorphism navbar
-- Hero section with light orange to white gradient background
-- Layered dashboard preview using relative and absolute positioning
-- Floating information cards around the hero preview
-- Responsive bento grid features section
+- Responsive hamburger menu
+- Gradient logo
+- Animated CTA button
+
+### Hero Section
+- Animated headline
+- Floating orbs
+- Morphing background blob
+- Rotating rings
+- 3D dashboard preview
+- Animated stat cards
+
+### Features Section
+- Bento grid layout
+- Hover transforms
+- Gradient cards
+- Glow effects
+
+### Testimonials
 - Glassmorphism testimonial cards
-- Animated call-to-action section
-- Dark footer with social icons and link groups
+- Hover scaling
+- Center elevated card
 
-## Key Tailwind Concepts Used
-- Tailwind CDN with extended configuration
-- Custom keyframes and animation utilities
-- Gradient backgrounds and gradient text
-- Backdrop blur and transparent borders for glass effects
-- Hover transforms, glow shadows, and transition utilities
-- Sticky section heading and fixed navigation
+### CTA Section
+- Animated gradient background
+- Floating blurred orbs
+- Interactive buttons
 
-## Exact Assignment Alignment
-The hero area follows the mentor feedback more closely by using:
-- `+ Project` style branding
-- `Write, plan, share. With AI at your side.` headline
-- `Get AI free` call-to-action
-- Positioned dashboard and floating information cards
+### Footer
+- Multi-column layout
+- Social media icons
+- Dark glow theme
 
-## How to Run
-1. Open `index.html` in any browser.
-2. No build step or installation is required.
+---
+
+## Run Project
+
+Simply open:
+
+```bash
+index.html
+````
+
+in your browser.
+
+---
+
+## Tailwind Features Used
+
+* Custom keyframes
+* Custom animations
+* Backdrop blur
+* Gradient utilities
+* Transform utilities
+* Responsive utilities
+* Shadow and glow effects
+
+---
+
+## Author
+
+Created for advanced frontend animation practice using Tailwind CSS.
+
+```
+```

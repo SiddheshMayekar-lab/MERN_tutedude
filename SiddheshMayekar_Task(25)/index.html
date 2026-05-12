@@ -1,257 +1,579 @@
+# FlowApp - Advanced SaaS Landing Page ## Folder Structure ```bash flowapp/ │
+├── index.html ├── README.md └── assets/ └── dashboard-preview.png ``` --- #
+index.html ```html
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>FlowApp Landing Page</title>
+    <title>FlowApp</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              morph: "morph 10s ease-in-out infinite",
+              glow: "glow 2s ease-in-out infinite alternate",
+              rotateSlow: "rotateSlow 18s linear infinite",
+              slideUp: "slideUp 1s ease forwards",
+              slideLeft: "slideLeft 1s ease forwards",
+              slideRight: "slideRight 1s ease forwards",
+              scaleIn: "scaleIn 1s ease forwards",
+              gradient: "gradient 8s ease infinite",
+            },
+
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+
+              morph: {
+                "0%,100%": {
+                  borderRadius: "40% 60% 70% 30% / 40% 40% 60% 50%",
+                },
+                "50%": {
+                  borderRadius: "70% 30% 50% 50% / 30% 30% 70% 70%",
+                },
+              },
+
+              glow: {
+                from: {
+                  boxShadow: "0 0 20px rgba(99,102,241,0.4)",
+                },
+                to: {
+                  boxShadow: "0 0 35px rgba(168,85,247,0.9)",
+                },
+              },
+
+              rotateSlow: {
+                from: {
+                  transform: "rotate(0deg)",
+                },
+                to: {
+                  transform: "rotate(360deg)",
+                },
+              },
+
+              slideUp: {
+                from: {
+                  opacity: "0",
+                  transform: "translateY(60px)",
+                },
+                to: {
+                  opacity: "1",
+                  transform: "translateY(0px)",
+                },
+              },
+
+              slideLeft: {
+                from: {
+                  opacity: "0",
+                  transform: "translateX(-80px)",
+                },
+                to: {
+                  opacity: "1",
+                  transform: "translateX(0)",
+                },
+              },
+
+              slideRight: {
+                from: {
+                  opacity: "0",
+                  transform: "translateX(80px)",
+                },
+                to: {
+                  opacity: "1",
+                  transform: "translateX(0)",
+                },
+              },
+
+              scaleIn: {
+                from: {
+                  opacity: "0",
+                  transform: "scale(0.8)",
+                },
+                to: {
+                  opacity: "1",
+                  transform: "scale(1)",
+                },
+              },
+
+              gradient: {
+                "0%,100%": {
+                  backgroundPosition: "0% 50%",
+                },
+                "50%": {
+                  backgroundPosition: "100% 50%",
+                },
+              },
+            },
+          },
+        },
+      };
+    </script>
   </head>
 
-  <body class="bg-gray-50 font-sans text-gray-800">
-    <!-- Fixed positioning used for navbar -->
-    <nav class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+  <body class="bg-[#050816] text-white overflow-x-hidden">
+    <!-- Background Grid -->
+    <div
+      class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:40px_40px] z-0"
+    ></div>
+
+    <!-- Floating Orbs -->
+    <div
+      class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full blur-[120px] opacity-30 animate-float"
+    ></div>
+    <div
+      class="absolute bottom-10 right-10 w-80 h-80 bg-cyan-500 rounded-full blur-[120px] opacity-30 animate-float"
+    ></div>
+
+    <!-- Navbar -->
+    <nav
+      class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/10 border-b border-white/10"
+    >
       <div
-        class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between"
+        class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
       >
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-3">
           <div
-            class="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center font-bold"
+            class="w-10 h-10 rounded-xl bg-gradient-to-r from-cyan-400 to-purple-500 flex items-center justify-center text-white text-xl shadow-lg shadow-purple-500/30"
           >
-            F
+            <i class="fa-solid fa-bolt"></i>
           </div>
-
-          <h1 class="text-2xl font-bold text-gray-900">FlowApp</h1>
+          <h1
+            class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"
+          >
+            FlowApp
+          </h1>
         </div>
 
-        <div
-          class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600"
+        <ul class="hidden md:flex items-center gap-10 text-gray-300">
+          <li><a href="#" class="hover:text-white transition">Features</a></li>
+          <li><a href="#" class="hover:text-white transition">Pricing</a></li>
+          <li><a href="#" class="hover:text-white transition">Reviews</a></li>
+        </ul>
+
+        <button
+          class="hidden md:block px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:scale-105 transition-all duration-300 animate-glow"
         >
-          <a href="#" class="hover:text-black">Product</a>
-          <a href="#" class="hover:text-black">Solutions</a>
-          <a href="#" class="hover:text-black">Resources</a>
-          <a href="#" class="hover:text-black">Pricing</a>
-          <a href="#" class="hover:text-black">Log in</a>
-        </div>
+          Get Started
+        </button>
+
+        <button class="md:hidden text-white text-3xl">☰</button>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 px-6 bg-gradient-to-b from-blue-50 to-white">
-      <!-- Relative positioning used to control absolute child elements -->
+    <section
+      class="relative min-h-screen flex items-center pt-32 overflow-hidden z-10"
+    >
+      <!-- Morph Blob -->
       <div
-        class="max-w-6xl mx-auto grid md:grid-cols-2 gap-14 items-center relative"
+        class="absolute w-[500px] h-[500px] bg-gradient-to-r from-cyan-500 to-purple-500 opacity-20 blur-3xl animate-morph top-20 left-1/2 -translate-x-1/2"
+      ></div>
+
+      <!-- Rotating Rings -->
+      <div
+        class="absolute w-[600px] h-[600px] border border-purple-500/20 rounded-full animate-rotateSlow left-1/2 -translate-x-1/2"
+      ></div>
+      <div
+        class="absolute w-[450px] h-[450px] border border-cyan-500/20 rounded-full animate-rotateSlow left-1/2 -translate-x-1/2"
+      ></div>
+
+      <div
+        class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-20"
       >
         <!-- Left Content -->
         <div>
-          <p class="text-blue-600 font-semibold mb-4">
-            Team Collaboration Platform
-          </p>
-
-          <h1
-            class="text-5xl md:text-6xl font-bold leading-tight text-gray-900"
-          >
-            Write, plan, and manage projects with your team
-          </h1>
-
-          <p class="mt-6 text-lg text-gray-600 leading-8">
-            FlowApp helps teams organize tasks, manage projects, and collaborate
-            in one simple workspace.
-          </p>
-
-          <div class="mt-8 flex flex-wrap gap-4">
-            <button
-              class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition"
+          <div class="overflow-hidden">
+            <h1
+              class="text-5xl md:text-7xl font-black leading-tight opacity-0 animate-slideUp"
             >
-              Get AI free
-            </button>
-
-            <button
-              class="border border-gray-300 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium transition"
-            >
-              Request a demo
-            </button>
-          </div>
-        </div>
-
-        <!-- Dashboard Area -->
-        <div class="relative">
-          <div
-            class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
-          >
-            <div class="flex items-center justify-between mb-6">
-              <h2 class="text-xl font-semibold text-gray-900">
-                Dashboard Preview
-              </h2>
-
+              Build Better Products
               <span
-                class="text-sm bg-green-100 text-green-700 px-3 py-1 rounded-full"
+                class="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-500 bg-[length:200%_200%] bg-clip-text text-transparent animate-gradient"
               >
-                Active
+                Faster With AI
               </span>
-            </div>
-
-            <div class="space-y-4">
-              <div class="bg-gray-100 p-4 rounded-xl">
-                <div class="flex justify-between items-center">
-                  <p class="font-medium">Website Redesign</p>
-                  <span class="text-sm text-blue-600">In Progress</span>
-                </div>
-
-                <div class="w-full bg-gray-200 h-2 rounded-full mt-3">
-                  <div class="bg-blue-600 h-2 rounded-full w-3/4"></div>
-                </div>
-              </div>
-
-              <div class="bg-gray-100 p-4 rounded-xl">
-                <div class="flex justify-between items-center">
-                  <p class="font-medium">Mobile App UI</p>
-                  <span class="text-sm text-green-600">Completed</span>
-                </div>
-
-                <div class="w-full bg-gray-200 h-2 rounded-full mt-3">
-                  <div class="bg-green-500 h-2 rounded-full w-full"></div>
-                </div>
-              </div>
-
-              <div class="bg-gray-100 p-4 rounded-xl">
-                <div class="flex justify-between items-center">
-                  <p class="font-medium">Marketing Campaign</p>
-                  <span class="text-sm text-yellow-600">Pending</span>
-                </div>
-
-                <div class="w-full bg-gray-200 h-2 rounded-full mt-3">
-                  <div class="bg-yellow-500 h-2 rounded-full w-1/3"></div>
-                </div>
-              </div>
-            </div>
+            </h1>
           </div>
 
-          <!-- Absolute positioning used for floating cards -->
-
-          <!-- Tasks Card -->
-          <div
-            class="absolute -top-5 -left-5 bg-white shadow-lg rounded-xl p-4 w-56 border border-gray-100"
+          <p
+            class="mt-8 text-gray-300 text-lg leading-relaxed opacity-0 animate-slideUp"
+            style="animation-delay: 0.4s; animation-fill-mode: forwards"
           >
-            <h3 class="font-semibold text-gray-900">Tasks</h3>
+            FlowApp helps teams streamline workflows, automate repetitive tasks,
+            collaborate in real-time, and unlock actionable insights using
+            powerful AI-driven tools.
+          </p>
 
-            <p class="mt-2 text-gray-600 text-sm">12 tasks completed today</p>
-          </div>
-
-          <!-- Project Status Card -->
           <div
-            class="absolute top-24 -right-5 bg-white shadow-lg rounded-xl p-4 w-48 border border-gray-100"
+            class="flex flex-wrap gap-5 mt-10 opacity-0 animate-slideUp"
+            style="animation-delay: 0.8s; animation-fill-mode: forwards"
           >
-            <h3 class="font-semibold text-gray-900">Project Status</h3>
+            <button
+              class="group relative overflow-hidden px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:scale-105 transition duration-300 animate-glow"
+            >
+              <span class="relative z-10">Start Free Trial</span>
+              <span
+                class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition duration-500"
+              ></span>
+            </button>
 
-            <p class="mt-2 text-green-600 font-medium">On Track</p>
-          </div>
-
-          <!-- Team Activity Card -->
-          <div
-            class="absolute bottom-0 left-10 bg-white shadow-lg rounded-xl p-4 w-44 border border-gray-100"
-          >
-            <h3 class="font-semibold text-gray-900">Team Activity</h3>
-
-            <p class="mt-2 text-blue-600 font-medium">+5 online</p>
+            <button
+              class="px-8 py-4 rounded-full border border-white/20 backdrop-blur-xl hover:bg-white/10 hover:scale-105 transition duration-300"
+            >
+              Watch Demo
+            </button>
           </div>
         </div>
+
+        <!-- Right Content -->
+        <div
+          class="relative opacity-0 animate-scaleIn"
+          style="
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+            perspective: 1000px;
+          "
+        >
+          <div
+            class="relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-4 hover:rotate-y-6 hover:-rotate-x-3 transition duration-500 shadow-2xl shadow-cyan-500/20"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop"
+              class="rounded-2xl"
+              alt="Dashboard"
+            />
+
+            <!-- Floating Card -->
+            <div
+              class="absolute -top-8 -left-8 p-5 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 animate-float"
+            >
+              <h3 class="text-sm text-gray-300">Revenue</h3>
+              <p class="text-2xl font-bold text-cyan-400">+48%</p>
+            </div>
+
+            <div
+              class="absolute -bottom-8 -right-8 p-5 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 animate-float"
+            >
+              <h3 class="text-sm text-gray-300">Automation</h3>
+              <p class="text-2xl font-bold text-purple-400">98%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div
+        class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 animate-float"
+      >
+        <span class="text-sm text-gray-400">Scroll</span>
+        <div
+          class="w-[2px] h-12 bg-gradient-to-b from-cyan-400 to-transparent"
+        ></div>
       </div>
     </section>
 
     <!-- Features Section -->
-    <section class="py-20 px-6 bg-white">
-      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
-        <!-- Sticky positioning used for sidebar section -->
-        <div class="sticky top-28 h-fit">
-          <p class="text-blue-600 font-semibold mb-4">Positioning Utilities</p>
-
-          <h2 class="text-4xl font-bold text-gray-900 leading-tight">
-            Understanding positioning in Tailwind CSS
-          </h2>
-
-          <p class="mt-5 text-gray-600 leading-7">
-            This project helped me learn how relative, absolute, fixed, and
-            sticky positioning work together in Tailwind CSS.
+    <section class="relative py-28 z-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-20">
+          <h2 class="text-5xl font-bold mb-5">Powerful Features</h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            Everything your team needs to accelerate growth and productivity.
           </p>
         </div>
 
-        <div class="space-y-6">
+        <div class="grid lg:grid-cols-3 gap-6 auto-rows-[250px]">
+          <!-- Large Card -->
           <div
-            class="bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm"
+            class="lg:col-span-2 row-span-2 group relative overflow-hidden rounded-3xl bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-white/10 p-10 hover:scale-[1.02] transition duration-500 shadow-xl hover:shadow-cyan-500/20"
           >
-            <h3 class="text-xl font-semibold text-gray-900">
-              Relative Positioning
-            </h3>
+            <div
+              class="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 transition"
+            ></div>
 
-            <p class="mt-3 text-gray-600 leading-7">
-              Relative positioning is useful when absolute elements need to stay
-              inside a parent container.
+            <h3 class="text-4xl font-bold mb-5">AI-Powered Automation</h3>
+
+            <p class="text-gray-300 leading-relaxed max-w-xl">
+              Automate workflows, optimize operations, and reduce manual effort
+              using advanced AI models and smart automation pipelines.
             </p>
           </div>
 
           <div
-            class="bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm"
+            class="group rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 hover:-rotate-2 hover:scale-105 transition duration-500 hover:shadow-purple-500/20 hover:shadow-xl"
           >
-            <h3 class="text-xl font-semibold text-gray-900">
-              Absolute Positioning
-            </h3>
-
-            <p class="mt-3 text-gray-600 leading-7">
-              Absolute positioning allows floating cards and elements to be
-              placed freely around a section.
+            <h3 class="text-2xl font-bold mb-4">Lightning Fast</h3>
+            <p class="text-gray-400">
+              Optimized infrastructure for blazing-fast performance.
             </p>
           </div>
 
           <div
-            class="bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm"
+            class="group rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 hover:rotate-2 hover:scale-105 transition duration-500 hover:shadow-cyan-500/20 hover:shadow-xl"
           >
-            <h3 class="text-xl font-semibold text-gray-900">
-              Fixed Positioning
-            </h3>
-
-            <p class="mt-3 text-gray-600 leading-7">
-              Fixed positioning keeps the navigation bar visible while scrolling
-              through the page.
+            <h3 class="text-2xl font-bold mb-4">Bank-Level Security</h3>
+            <p class="text-gray-400">
+              Enterprise-grade encryption and secure architecture.
             </p>
           </div>
 
           <div
-            class="bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm"
+            class="group rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 hover:-rotate-2 hover:scale-105 transition duration-500 hover:shadow-pink-500/20 hover:shadow-xl"
           >
-            <h3 class="text-xl font-semibold text-gray-900">
-              Sticky Positioning
-            </h3>
+            <h3 class="text-2xl font-bold mb-4">Advanced Analytics</h3>
+            <p class="text-gray-400">
+              Track performance with real-time business insights.
+            </p>
+          </div>
 
-            <p class="mt-3 text-gray-600 leading-7">
-              Sticky positioning helps content stay visible until the parent
-              section ends.
+          <div
+            class="group rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 hover:rotate-2 hover:scale-105 transition duration-500 hover:shadow-green-500/20 hover:shadow-xl"
+          >
+            <h3 class="text-2xl font-bold mb-4">Real-time Sync</h3>
+            <p class="text-gray-400">
+              Stay connected with instant updates across devices.
+            </p>
+          </div>
+
+          <div
+            class="group rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 hover:-rotate-2 hover:scale-105 transition duration-500 hover:shadow-yellow-500/20 hover:shadow-xl"
+          >
+            <h3 class="text-2xl font-bold mb-4">Team Collaboration</h3>
+            <p class="text-gray-400">
+              Collaborate seamlessly with your entire team.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 px-6">
-      <div
-        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6"
-      >
-        <div>
-          <h2 class="text-2xl font-bold">FlowApp</h2>
-
-          <p class="mt-2 text-gray-400">
-            Simple landing page created using Tailwind CSS positioning
-            utilities.
+    <!-- Testimonials -->
+    <section class="py-28 relative z-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center mb-20">
+          <h2 class="text-5xl font-bold mb-4">What Teams Say</h2>
+          <p class="text-gray-400">
+            Trusted by startups and enterprise teams worldwide.
           </p>
         </div>
 
-        <div class="flex gap-5 text-gray-400 text-sm">
-          <a href="#" class="hover:text-white">Product</a>
-          <a href="#" class="hover:text-white">Pricing</a>
-          <a href="#" class="hover:text-white">Resources</a>
+        <div class="grid lg:grid-cols-3 gap-8 items-center">
+          <!-- Card -->
+          <div
+            class="rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 hover:scale-105 transition duration-500"
+          >
+            <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
+            <p class="text-gray-300 mb-8">
+              “FlowApp completely transformed our workflow. Productivity has
+              increased dramatically.”
+            </p>
+
+            <div class="flex items-center gap-4">
+              <img
+                src="https://randomuser.me/api/portraits/women/44.jpg"
+                class="w-14 h-14 rounded-full"
+              />
+              <div>
+                <h4 class="font-bold">Sarah Johnson</h4>
+                <p class="text-gray-400 text-sm">Product Manager</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Middle --> 
+          <div
+            class="rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 hover:scale-105 transition duration-500"
+          >
+            <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
+            <p class="text-gray-300 mb-8">
+              “The automation capabilities saved us hundreds of hours every
+              month We LevelUp in Tech.”
+            </p>
+
+            <div class="flex items-center gap-4">
+              <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                class="w-14 h-14 rounded-full"
+              />
+              <div>
+                <h4 class="font-bold">Michael Lee</h4>
+                <p class="text-gray-400 text-sm">Startup Founder</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card -->
+          <div
+            class="rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-8 hover:scale-105 transition duration-500"
+          >
+            <div class="text-yellow-400 text-2xl mb-4">★★★★★</div>
+            <p class="text-gray-300 mb-8">
+              “Beautiful UI, incredible performance, and outstanding support.”
+            </p>
+
+            <div class="flex items-center gap-4">
+              <img
+                src="https://randomuser.me/api/portraits/women/68.jpg"
+                class="w-14 h-14 rounded-full"
+              />
+              <div>
+                <h4 class="font-bold">Emily Carter</h4>
+                <p class="text-gray-400 text-sm">UX Designer</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="relative py-32 overflow-hidden z-20">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-cyan-600 via-purple-600 to-pink-600 bg-[length:200%_200%] animate-gradient opacity-30"
+      ></div>
+
+      <div
+        class="absolute top-10 left-10 w-72 h-72 rounded-full bg-cyan-400 blur-[120px] opacity-20"
+      ></div>
+      <div
+        class="absolute bottom-10 right-10 w-72 h-72 rounded-full bg-purple-400 blur-[120px] opacity-20"
+      ></div>
+
+      <div class="relative max-w-4xl mx-auto text-center px-6">
+        <h2 class="text-5xl md:text-6xl font-black mb-6">
+          Ready to transform your workflow?
+        </h2>
+
+        <p class="text-gray-300 text-lg mb-10">
+          Join thousands of teams already building faster and smarter with
+          FlowApp.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-5 mb-6">
+          <button
+            class="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:scale-105 transition duration-300 animate-glow"
+          >
+            Start Free Trial
+          </button>
+
+          <button
+            class="px-8 py-4 rounded-full border border-white/20 backdrop-blur-xl hover:bg-white/10 hover:scale-105 transition duration-300"
+          >
+            Schedule Demo
+          </button>
+        </div>
+
+        <p class="text-gray-400 text-sm">
+          No credit card required • Cancel anytime
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="relative py-20 border-t border-white/10 z-20 bg-black/40 backdrop-blur-xl"
+    >
+      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 gap-10">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <div
+              class="w-10 h-10 rounded-xl bg-gradient-to-r from-cyan-400 to-purple-500 flex items-center justify-center text-white text-xl shadow-lg shadow-purple-500/30"
+            >
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <h1
+              class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent"
+            >
+              FlowApp
+            </h1>
+          </div>
+
+          <p class="text-gray-400 mb-6">
+            Build faster, collaborate smarter, and scale efficiently.
+          </p>
+
+          <div class="flex gap-5 text-2xl">
+            <a
+              href="#"
+              class="hover:text-cyan-400 transition duration-300 hover:scale-110"
+            >
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a
+              href="#"
+              class="hover:text-purple-400 transition duration-300 hover:scale-110"
+            >
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a
+              href="#"
+              class="hover:text-pink-400 transition duration-300 hover:scale-110"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              href="#"
+              class="hover:text-blue-400 transition duration-300 hover:scale-110"
+            >
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-bold mb-5">Product</h3>
+          <ul class="space-y-3 text-gray-400">
+            <li>
+              <a href="#" class="hover:text-white transition">Features</a>
+            </li>
+            <li><a href="#" class="hover:text-white transition">Pricing</a></li>
+            <li>
+              <a href="#" class="hover:text-white transition">Integrations</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold mb-5">Company</h3>
+          <ul class="space-y-3 text-gray-400">
+            <li><a href="#" class="hover:text-white transition">About</a></li>
+            <li><a href="#" class="hover:text-white transition">Careers</a></li>
+            <li><a href="#" class="hover:text-white transition">Blog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-bold mb-5">Legal</h3>
+          <ul class="space-y-3 text-gray-400">
+            <li>
+              <a href="#" class="hover:text-white transition">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-white transition"
+                >Terms of Service</a
+              >
+            </li>
+            <li><a href="#" class="hover:text-white transition">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="mt-16 text-center text-gray-500 border-t border-white/10 pt-8"
+      >
+        © 2026 FlowApp. All rights reserved.
       </div>
     </footer>
   </body>

@@ -1,96 +1,25 @@
-# Custom useFetch Hook React Project
+# Task 29 - Custom useFetch Hook
 
-## About This Project
+## What is this task about?
 
-This project is made using React to understand how custom hooks work.  
-The main goal of this assignment was to learn how API fetching logic can be reused by creating a custom hook called `useFetch`.
+This task is about building a custom React hook called `useFetch` that handles fetching data from an API. The goal is to understand how to use `useState` and `useEffect` together inside a reusable hook.
 
-The project fetches user data from a dummy API and displays it on the screen along with loading and error handling.
+## What I built
 
----
+A custom hook at `src/hooks/useFetch.js` that:
+- takes a URL as input
+- fetches data from that URL
+- returns `data`, `loading`, and `error` states
 
-## Concepts Used
+The main `App.jsx` uses this hook to fetch a list of users from `jsonplaceholder.typicode.com` and shows them on screen.
 
-- React Components
-- useState Hook
-- useEffect Hook
-- Custom Hooks
-- API Fetching
-- Conditional Rendering
-- Basic CSS Styling
+## What I learned
 
----
-
-## What I Learned
-
-While making this project, I learned:
-
-- How to create a custom hook in React
-- How `useEffect` works with API calls
-- How to manage loading state
-- How to handle errors during fetching
-- How reusable logic helps reduce repeated code
-
-I also understood how custom hooks can make React code cleaner and easier to manage.
-
----
-
-## Features
-
-- Fetches user data from API
-- Shows loading message while fetching
-- Shows error message if request fails
-- Displays fetched users in cards
-- Simple responsive layout
-
----
-
-## Challenges Faced
-
-At first, I was confused about how custom hooks return values and how the data flows back into the component.
-
-I also had some difficulty understanding when `useEffect` runs and how loading state changes during the fetch process.
-
-After practicing and testing multiple times, I understood the overall flow better.
-
----
-
-## API Used
-
-```txt
-https://jsonplaceholder.typicode.com/users
-```
-
----
-
-## How to Run the Project
-
-1. Open terminal
-2. Go to project folder
-
-```bash
-cd project-folder
-```
-
-3. Install dependencies
-
-```bash
-npm install
-```
-
-4. Start development server
-
-```bash
-npm run dev
-```
-
-5. Open browser and visit:
-
-```txt
-http://localhost:5173
-```
+- Custom hooks are just regular functions that call other hooks like useState/useEffect
+- The dependency array in useEffect is important - putting `url` in it means the fetch re-runs whenever the URL changes
+- I need to handle three states: loading (while waiting), data (success), and error (something broke)
+- Checking `res.ok` is how you catch HTTP errors like 404 or 500, because fetch only throws on network failures
 
 
-## Author
-
-Siddhesh Mayekar
+## API used
+https://jsonplaceholder.typicode.com/users - free fake API for testing

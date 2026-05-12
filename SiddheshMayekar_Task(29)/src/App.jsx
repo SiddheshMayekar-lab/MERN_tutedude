@@ -1,74 +1,57 @@
-import "./App.css";
-import useFetch from "./hooks/useFetch";
+import './App.css'
+import useFetch from './hooks/useFetch'
 
-// api url
-const API_URL = "https://jsonplaceholder.typicode.com/users";
+// using jsonplaceholder as a free dummy API
+const URL = 'https://jsonplaceholder.typicode.com/users'
 
 function App() {
-  // using custom hook here
-  const { data, loading, error } = useFetch(API_URL);
+  // destructuring the three things my hook returns
+  const { data, loading, error } = useFetch(URL)
 
   return (
     <div className="container">
-      <h1>Custom useFetch Hook</h1>
+      <h1>Task 29 - useFetch Hook</h1>
+      <p>This page fetches users from a dummy API using my custom useFetch hook.</p>
 
-      <p className="description">
-        This project shows how to create and use a custom hook in React for
-        fetching API data.
-      </p>
-
-      <div className="info-box">
-        <p>
-          <strong>API Used:</strong>
-        </p>
-        <p>{API_URL}</p>
+      <div className="api-info">
+        <strong>API URL:</strong> {URL}
       </div>
 
-      {/* loading message */}
-      {loading && <p className="message">Loading data...</p>}
+      {/* show loading text while waiting */}
+      {loading && <p className="loading-text">Loading data...</p>}
 
-      {/* error message */}
-      {error && <p className="error">{error}</p>}
+      {/* show error if something broke */}
+      {error && <p className="error-text">Error: {error}</p>}
 
-      {/* displaying fetched users */}
-      {!loading && !error && (
-        <div className="user-list">
-          {data.map((user) => (
-            <div className="card" key={user.id}>
-              <h2>{user.name}</h2>
-
-              <p>
-                <strong>Email:</strong> {user.email}
-              </p>
-
-              <p>
-                <strong>Phone:</strong> {user.phone}
-              </p>
-
-              <p>
-                <strong>Company:</strong> {user.company.name}
-              </p>
-
-              <p>
-                <strong>Website:</strong> {user.website}
-              </p>
-            </div>
-          ))}
+      {/* only show the list once we have data */}
+      {data && (
+        <div>
+          <h2>Users ({data.length} found)</h2>
+          <div className="users-list">
+            {data.map((user) => (
+              <div className="user-card" key={user.id}>
+                <h3>{user.name}</h3>
+                <p>Email: {user.email}</p>
+                <p>Phone: {user.phone}</p>
+                <p>Company: {user.company.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
+      {/* small section explaining what the hook returns */}
       <div className="hook-info">
-        <h2>What I Learned</h2>
-
+        <h2>How the hook works</h2>
+        <p>useFetch(url) returns three things:</p>
         <ul>
-          <li>How to create a custom hook</li>
-          <li>How useEffect works</li>
-          <li>How to fetch API data</li>
-          <li>How loading and error states are handled</li>
+          <li><code>data</code> - the response from the API</li>
+          <li><code>loading</code> - true while fetching, false when done</li>
+          <li><code>error</code> - null normally, shows message if fetch fails</li>
         </ul>
       </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
